@@ -71,7 +71,7 @@ exclude_patterns = ['_ext']
 # General style
 
 smartquotes = True
-language = 'en'
+language = 'zh_CN'
 
 
 # -- Options for HTML output -------------------------------------------------
