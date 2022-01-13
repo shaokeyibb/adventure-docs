@@ -36,9 +36,9 @@ if release.endswith('-SNAPSHOT'):
 rst_prolog = """
 .. danger::
 
-    The Adventure docs are currently a **work in progress** and supplement the `Javadocs <https://jd.adventure.kyori.net>`_.
-    Some areas may have limited coverage or may not be entirely up to date.
-    Feel free to join our `Discord <https://discord.gg/MMfhJ8F>`_ if you have any questions.
+    Adventure 文档目前仍为 **尚在施工** 状态，并且作为 `Javadocs <https://jd.adventure.kyori.net>`_ 的补充.
+    一些地方可能覆盖面有限，或可能不是完全最新的.
+    所有你有任何问题，欢迎加入我们的 `Discord <https://discord.gg/MMfhJ8F>`_.
 
 .. |version| replace:: {version}
 
