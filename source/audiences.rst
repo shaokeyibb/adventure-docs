@@ -1,43 +1,34 @@
 =========
-Audiences
+听众 (Audiences)
 =========
 
-An audience, at its core, is a grouping of 0 or more viewers of some content.
-The concept of an audience is where Adventure makes its most clear break from
-other Minecraft platforms.
+听众 (audience), 论其核心, 是一些内容的 0 个或更多观众 (viewers) 的组合.
+听众的概念是 Adventure 与其他 Minecraft 平台相比最明显的区别.
 
-As an API, ``Audience`` is designed to be a universal interface for any player,
-command sender, console, or otherwise who can receive text, titles, boss bars,
-and other Minecraft media. This allows extending audiences to cover more than
-one individual receiver - possible "audiences" could include a team, server,
-world, or all players that satisfy some predicate (such as having a certain
-permission). The universal interface also allows reducing boilerplate by
-gracefully degrading functionality if it is not applicable. For instance, it
-does not make much sense to send a boss bar to a command sender, and you can't
-send titles to Minecraft 1.7 clients.
+作为一个 API, ``Audience`` 被设计为一个面向任何玩家,命令发送者 (command sender), 控制台 (console),
+或者其他可以接收文本，标题，boss 血条，以及其他 Minecraft 媒体的对象的通用接口.
+这将允许拓展听众以覆盖不止一个单独接收者 (receive) - 可能 "听众" 可以包含一个队伍, 服务器, 世界,
+或者所有满足某些条件的玩家 (例如拥有指定权限). 这个通用的接口也允许通过优雅的降低功能性来减少模板代码.
+例如，向一个命令发送者发送一个 boss 血条显然没有什么用，而且你不能向 Minecraft 1.7 的客户端发送标题.
 
-You will normally get audience instances from one of the :doc:`/platform/index`.
-The Adventure API includes two audience implementations itself: one that does not
-support any action (and thus does nothing). ``Audience.empty()``, and one that
-forwards an action to each member in the audience, ``Audience.audience()`` and related
-methods, along with the ``ForwardingAudience`` that implements the forwarding logic
-for you.
+你通常会从 :doc:`/platform/index` 的其中之一获取听众实例.
+Adventure API 自身包含两个听众实现: 一个不支持任何行为 (因此什么也不会做).
+``Audience.empty()``, 一个将行为转发给听众对象中的每一个成员,
+``Audience.audience()`` 及相关方法, 以及为你实现转发逻辑的 ``ForwardingAudience``.
 
-Most users using will primarily use this API to show content created by other parts
-of the API.
+大多数用户将会主要使用这个 API 来显示由 API 其他部分创建的内容.
 
-Pointers
+指针
 ^^^^^^^^
 
-Audiences can also provide arbitrary information, such as display name or UUID.
-This is done using the pointer system.
+听众对象也可以提供任意的信息，例如玩家的显示名称 (display name) 或者 UUID. 这都籍由指针系统完成.
 
-Examples:
+例如:
 
 .. code:: java
 
-  // get the uuid from an audience member, returning an Optional<UUID>
+  // 从一个听众成员获取 uuid, 返回一个 Optional<UUID>
   audience.get(Identity.UUID);
 
-  // get the display name, returning a default
+  // 获取玩家的玩家的显示名称, (亦或者) 返回一个默认值
   audience.getOrDefault(Identity.DISPLAY_NAME, Component.text("no display name!"));

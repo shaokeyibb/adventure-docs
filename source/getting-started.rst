@@ -1,8 +1,8 @@
 ===============
-Getting Started
+开始
 ===============
 
-To use Adventure in your project, you will need to add the following dependency and repository (if using Gradle):
+要想在你的项目中使用 Adventure, 你需要添加如下的依赖和仓库 (如果使用 Gradle):
 
 .. tabs::
 
@@ -44,17 +44,17 @@ To use Adventure in your project, you will need to add the following dependency 
             implementation("net.kyori:adventure-api:|version|")
          }
 
-Some platforms already use Adventure natively.
-In this case, you will not need to add Adventure as a dependency.
-To view the list of platforms that include Adventure, see :doc:`/platform/native`.
+一些平台已经原生支持 Adventure.
+在这种情况下, 你无需添加 Adventure 作为依赖.
+要想查看已经包含 Adventure 的平台列表, 请见 :doc:`/platform/native`.
 
-To use Adventure with other platforms, you may wish to look at the platform-specific adapters.
-A list of platforms with supported adapters can be found at :doc:`/platform/index`.
+要想在其他平台使用 Adventure, 你可能希望查看一些平台特定 (platform-specific) 的适配器 (adapters).
+一个带有受支持适配器的平台列表可见于 :doc:`/platform/index`.
 
-Using Snapshot Builds
+使用快照构建
 ^^^^^^^^^^^^^^^^^^^^^
 
-To use snapshot builds, you will need to add the following repository:
+要想使用快照构建, 你需要添加如下的仓库:
 
 .. tabs::
 
