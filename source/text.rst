@@ -54,7 +54,7 @@ TextColor 可提供 RGB 光谱中的任何颜色.
 * **加粗(Bold)**
 * 删除线(Strikethrough)
 * 下划线(Underlined)
-* 混淆(Obfuscated)
+* 随机字符(Obfuscated)
 
 事件
 ^^^^^^^

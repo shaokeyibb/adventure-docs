@@ -1,12 +1,12 @@
 .. _platforms:
 
 =========
-Platforms
+平台
 =========
 
-Adventure integrates with many of the Minecraft platforms out there. Some platforms support
-Adventure natively, but other legacy platforms have their own types and need an adapter to handle Adventure types. To enable you to use Adventure with these platforms, Adventure provides a number of platform-specific adapters to
-allow you to obtain ``Audience`` instances from native user types.
+Adventure 与许多外部的 Minecraft 平台集成. 一些平台原生支持 Adventure,
+但是其他旧版平台拥有他们自己的类型并且需要一个适配器来处理 Adventure 类型.
+为了让你能够在这些平台上使用 Adventure, Adventure 提供了一些平台特定的适配器以允许你从他们的原生用户类型中获得 ``Audience`` 实例.
 
 .. toctree::
    :maxdepth: 2

@@ -2,13 +2,13 @@
 MiniMessage
 ===========
 
-MiniMessage is a string based format to represent Minecraft chat components in a human-readable
-format that is easy to edit.
+MiniMessage 是一种基于字符串的格式,
+以一种易于编辑且人类可读 (human-readable) 的形式表示 Minecraft 聊天组件.
 
-Usage
+用法
 ^^^^^^^^^^^^^^^^^^^
 
-Adding the repository
+添加仓库
 
 .. tabs::
 
@@ -18,7 +18,7 @@ Adding the repository
 
          <repositories>
              <!-- ... -->
-             <repository> <!-- for development builds -->
+             <repository> <!-- 对于快照构建 -->
                <id>sonatype-oss-snapshots</id>
                <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
              </repository>
@@ -30,12 +30,12 @@ Adding the repository
       .. code:: groovy
 
          repositories {
-            // for development builds
+            // 对于快照构建
             maven {
                 name = "sonatype-oss-snapshots"
                 url = "https://oss.sonatype.org/content/repositories/snapshots/"
             }
-            // for releases
+            // 对于发行版
             mavenCentral()
          }
 
@@ -44,15 +44,15 @@ Adding the repository
       .. code:: kotlin
 
          repositories {
-            // for development builds
+            // 对于快照构建
             maven(url = "https://oss.sonatype.org/content/repositories/snapshots/") {
                 name = "sonatype-oss-snapshots"
             }
-            // for releases
+            // 对于发行版
             mavenCentral()
          }
 
-   Declaring the dependency:
+   声明依赖:
 
 .. tabs::
 
@@ -86,42 +86,42 @@ Adding the repository
 API
 ^^^
 
-MiniMessage exposes a simple API via the ``MiniMessage`` class.
+MiniMessage 通过 ``MiniMessage`` 类暴露了一个简单的 API.
 
-There are two different instances of that interface, ``get()`` and ``markdown()``, the latter one provides basic Markdown support, in addition to the MiniMessage support. More information can be found in the Markdown_ section.
+对于该接口存在两种不同的实例, ``get()`` 和 ``markdown()``, 后者提供基本的 Markdown 支持, 并额外提供 MiniMessage 支持. 更多信息可查看 Markdown_ 一节.
 
-Additional customization of MiniMessage is possible via the Builder_.
+可以通过 Builder_ 为 MiniMessage 添加额外的自定义.
 
-MiniMessage allows you to both serialize components into MiniMessage strings and to parse/deserialize MiniMessage strings into components.
+MiniMessage 允许既允许你序列化组件为 MiniMessage 字符串, 也允许你粘贴/反序列化 MiniMessage 字符串为组件.
 
-Format
+格式
 ^^^^^^^^^^^^^^^^^^^
 
-This library uses tags. Everything you do will be defined with tags. Tags have a start tag and an end tag (the ``<reset>`` tag is an exception here).
-Start tags are mandatory (obviously), end tags aren't.
-``<yellow>Hello <blue>World<yellow>!`` and ``<yellow>Hello <blue>World</blue>!`` and even ``<yellow>Hello </yellow><blue>World</blue><yellow>!</yellow>`` all do the same.
+该依赖库使用标签 (tags). 你做的一切都被使用标签定义. 标签包含一个起始标签和一个结束标签 (``<reset>`` 标签在这里是一个例外).
+开始标签是强制性的 (显然如此), 而结束标签并不是.
+``<yellow>Hello <blue>World<yellow>!`` 和 ``<yellow>Hello <blue>World</blue>!`` 甚至 ``<yellow>Hello </yellow><blue>World</blue><yellow>!</yellow>`` 所做的都是相同的.
 
-Some tags have inner tags. Those look like this: ``<tag:inner>stuff</tag>``. For example: ``<hover:show_text:"<red>test:TEST">TEST`` or ``<click:run_command:test>TEST``
-As you can see, those sometimes contain components, sometimes just strings. Refer to the detailed docs below.
+一些标签拥有内部标签 (inner tags). 他们看起来像这样: ``<tag:inner>stuff</tag>``. 例如: ``<hover:show_text:"<red>test:TEST">TEST`` 或者 ``<click:run_command:test>TEST``
+正如你所看到的, 有时候这些标签包含组件，有时则只是包含字符串. 具体请参阅下方的详细文档.
 
-Single (``'``) and double (``"``) quotes can be used interchangeably, but for your own sanity, please stay consistent, choose one for all your messages. MiniMessage *should* handle mismatched quotes nicely tho.
+单引号 (``'``) 和双引号 (``"``) 是通用的, 但是为了保护智商, 请保持一致, 为你的消息选择其中一个使用. MiniMessage *应该* 很好的处理这些不匹配的引号.
 
-The components try to represent vanilla as closely as possible.
-It might to helpful to use `the minecraft wiki <https://minecraft.gamepedia.com/Raw_JSON_text_format>`_ as a reference, especially for stuff like the actions and values of click and hover events.
+组件尝试尽可能的与原版表示相接近.
+使用 `minecraft wiki <https://minecraft.gamepedia.com/Raw_JSON_text_format>`_ 作为参考可能会很有用, 特别是在点击和悬浮事件的行为和值上.
 
-The Components
+组件
 ----------------
 
-Color
+颜色
 ******
 
-Color the next parts
+为后文上色
 
-Tag
+标签
    ``<_colorname_>``
-Arguments
-   * ``_colorname_``, all minecraft color constants (check `here <https://github.com/KyoriPowered/adventure/blob/master/api/src/main/java/net/kyori/adventure/text/format/NamedTextColor.java>`_), or hex colors
-Examples
+参数
+   * ``_colorname_``, 所有的 minecraft 颜色常量 (参见 `这里 <https://github.com/KyoriPowered/adventure/blob/master/api/src/main/java/net/kyori/adventure/text/format/NamedTextColor.java>`_), 或是 hex 颜色
+示例
    * ``<yellow>Hello <blue>World</blue>!``
    * ``<red>This is a <green>test!``
    * ``<#00ff00>R G B!``
@@ -129,17 +129,17 @@ Examples
 .. image:: https://i.imgur.com/wB32YpZ.png
 .. image:: https://i.imgur.com/vsN3OHa.png
 
-Color (verbose)
+颜色 (详细)
 ******************
 
-A more verbose way of defining colors
+使用更详细的方式定义颜色
 
-Tag
+标签
    ``<color:_colorNameOrHex_>``
-Aliases
+别名
    ``colour``, ``c``
-Arguments
-   * ``_colorNameOrHex_``, can be all the values from above (so named colors or hex colors)
+参数
+   * ``_colorNameOrHex_``, 可以是上面的所有值 (包括已命名的颜色和 hex 颜色)
 Examples
    * ``<color:yellow>Hello <color:blue>World</color:blue>!``
    * ``<color:#FF5555>This is a <color:#55FF55>test!``
@@ -147,109 +147,109 @@ Examples
 .. image:: https://i.imgur.com/wB32YpZ.png
 .. image:: https://i.imgur.com/vsN3OHa.png
 
-Decoration
-************
+装饰 (Decoration)
+******************
 
-Decorate the next parts
+装饰后文
 
-Tag
+标签
    ``<_decorationname_>``
-Arguments:
-   * | ``_decorationname_`` , all minecraft decorations (`check here <https://github.com/KyoriPowered/adventure/blob/master/api/src/main/java/net/kyori/adventure/text/format/TextDecoration.java>`_)
-     | Aliases for ``strikethrough`` -> ``st``, ``obfuscated`` -> ``obf``, ``italic`` -> ``em`` or ``i`` and ``bold`` -> ``b`` exist
-Examples:
+参数:
+   * | ``_decorationname_`` , 所有 minecraft 装饰 (`参见这里 <https://github.com/KyoriPowered/adventure/blob/master/api/src/main/java/net/kyori/adventure/text/format/TextDecoration.java>`_)
+     | 别名有 ``strikethrough`` -> ``st``, ``obfuscated`` -> ``obf``, ``italic`` -> ``em`` 或是 ``i`` 以及 ``bold`` -> ``b`` 可以使用
+示例:
    * ``<underlined>This is <bold>important</bold>!``
 
 .. image:: https://i.imgur.com/hREGXQy.png
 
-Reset
+重置
 ************
 
-Reset all colors, decorations, hovers etc. Doesn't have a close tag
+重置所有颜色, 装饰, 悬浮等. 无结束标签
 
-Tag
+标签
    ``<reset>``
-Aliases
+别名
    ``r``
-Arguments
-   non
-Examples
+参数
+   无
+示例
    * ``<yellow><bold>Hello <reset>world!``
 
 .. image:: https://i.imgur.com/bjInUhj.png
 
-Click
+点击
 ************
 
-Allows doing multiple things when clicking on the component.
+允许当点击组件时做很多事情.
 
-Tag
+标签
    ``<click:_action_:_value_>``
-Arguments
-   * ``_action_``, the type of click event, one of `this list <https://github.com/KyoriPowered/adventure/blob/master/api/src/main/java/net/kyori/adventure/text/event/ClickEvent.java>`_
-   * ``_value_``, the argument for that particular event, refer to `the minecraft wiki <https://minecraft.gamepedia.com/Raw_JSON_text_format>`_
-Examples
+参数
+   * ``_action_``, 点击事件类型, `该列表 <https://github.com/KyoriPowered/adventure/blob/master/api/src/main/java/net/kyori/adventure/text/event/ClickEvent.java>`_ 之一
+   * ``_value_``, 特定事件的参数, 参考 `minecraft wiki <https://minecraft.gamepedia.com/Raw_JSON_text_format>`_
+示例
    * ``<click:run_command:/say hello>Click</click> to say hello``
    * ``Click <click:copy_to_clipboard:Haha you suck> this </click>to copy your score!``
 
 .. image:: https://i.imgur.com/J82qOHn.png
 
-Hover
+悬浮
 ************
 
-Allows doing multiple things when hovering on the component.
+允许当悬浮在组件上时做很多事情.
 
-Tag
+标签
    ``<hover:_action_:_value_>``
-Arguments
-   * ``_action_``, the type of hover event, one of this `list <https://github.com/KyoriPowered/adventure/blob/master/api/src/main/java/net/kyori/adventure/text/event/HoverEvent.java>`_
-   * ``_value_``, the argument for that particular event, refer to `the minecraft wiki <https://minecraft.gamepedia.com/Raw_JSON_text_format>`_
-Examples
+参数
+   * ``_action_``, 悬浮事件类型, `该列表 <https://github.com/KyoriPowered/adventure/blob/master/api/src/main/java/net/kyori/adventure/text/event/HoverEvent.java>`_ 之一
+   * ``_value_``, 特定事件的参数, 参考 `minecraft wiki <https://minecraft.gamepedia.com/Raw_JSON_text_format>`_
+示例
    * ``<hover:show_text:'<red>test'>TEST``
 
 .. image:: https://i.imgur.com/VsHDPTI.png
 
-Keybind
+按键绑定 (Keybind)
 ************
 
-Allows displaying the configured key for actions
+允许为行为显示配置过的按键
 
-Tag
+标签
    ``<key:_key_>``
-Arguments
-   * ``_key_``, the keybind identifier of the action
-Examples
+参数
+   * ``_key_``, 该行为的按键绑定标识符
+示例
    * ``Press <red><key:key.jump> to jump!``
 
 .. image:: https://i.imgur.com/iQmNDF6.png
 
-Translatable
+可翻译键 (Translatable)
 ************
 
-Allows displaying minecraft messages using the player locale
+允许使用玩家的语言环境显示 miencraft 消息
 
-Tag
+标签
    ``<lang:_key_:_value1_:_value2_>``
-Arguments
-   * ``_key_``, the translation key
-   * ``_valueX_``, optional values that are used for placeholders in the key (they will end up in the ``with`` tag in the json)
-Examples
+参数
+   * ``_key_``, 翻译键
+   * ``_valueX_``, 被用作该键中占位符的可选参数 (他们最终将会出现在 json 中的 ``with`` 标签内)
+示例
    * ``You should get a <lang:block.minecraft.diamond_block>!``
    * ``<lang:commands.drop.success.single:'<red>1':'<blue>Stone'>!``
 
 .. image:: https://i.imgur.com/mpdDMF6.png
 .. image:: https://i.imgur.com/esWpnxm.png
 
-Insertion
+插入 (Insertion)
 ************
 
-Allow insertion of text into chat via shift click
+允许通过 shift 单机将文本插入聊天
 
-Tag
+标签
    ``<insertion:_text_>``
-Arguments
-   * ``_text_``, the text to insert
-Examples
+参数
+   * ``_text_``, 要插入的文本
+示例
    * ``Click <insert:test>this</insert> to insert!``
 
 .. image:: https://i.imgur.com/Imhom84.png
@@ -257,28 +257,28 @@ Examples
 Pre
 ************
 
-Tags within this tag will not be parsed, useful for player input for example
+在此标签中的标签不会被解析, 对于例如玩家输入很有用
 
-Tag
+标签
    ``<pre>``
-Arguments
-   non
-Examples
+参数
+   无
+示例
    * ``<gray><<yellow><player><gray>> <reset><pre><message></pre>``
 
 .. image:: https://i.imgur.com/pQqaJnD.png
 
-Rainbow
+彩虹色
 ************
 
-Rainbow colored text?!
+彩虹色的文本?!
 
-Tag
+标签
    ``<rainbow:[!][phase]>``
-Arguments
-   * phase, optional
-   * ``!``, literal value which reverses the rainbow, optional
-Examples
+参数
+   * 相位, 可选的
+   * ``!``, 用于反转彩虹色的字面量, 可选的
+示例
    * ``<yellow>Woo: <rainbow>||||||||||||||||||||||||</rainbow>!``
    * ``<yellow>Woo: <rainbow:!>||||||||||||||||||||||||</rainbow>!``
    * ``<yellow>Woo: <rainbow:2>||||||||||||||||||||||||</rainbow>!``
@@ -286,16 +286,16 @@ Examples
 
 .. image:: https://i.imgur.com/Ertlk2G.png
 
-Gradient
+渐变色 (Gradient)
 ************
 
-Gradient colored text
+渐变色的文本
 
-Tag
+标签
    ``<gradient:[color1]:[color...]:[phase]>``
-Arguments
-   a list of 1 to n colors, either hex or named colors and an optional phase param (range -1 to 1) allows you to shift the gradient around, creating animations.
-Examples
+参数
+   含有 1 到 n 个颜色的列表, hex 或 已命名的顔色以及一个可选择相位参数 (范围从 -1 到 1) 允许你移动渐变, 创建动画。
+示例
    * ``<yellow>Woo: <gradient>||||||||||||||||||||||||</gradient>!``
    * ``<yellow>Woo: <gradient:#5e4fa2:#f79459>||||||||||||||||||||||||</gradient>!``
    * ``<yellow>Woo: <gradient:#5e4fa2:#f79459:red>||||||||||||||||||||||||</gradient>!``
@@ -303,16 +303,16 @@ Examples
 
 .. image:: https://i.imgur.com/8qYHCWk.png
 
-Font
+字体
 ***********
 
-Allows to change the font of the text
+允许改变文本的字体
 
 Tag
    ``<font:key>``
-Arguments
-   the namespaced key of the font, defaulting to ``minecraft``
-Examples
+参数
+   字体的命名空间键 (namespaced key), 默认为 ``minecraft``
+示例
    * ``Nothing <font:uniform>Uniform <font:alt>Alt  </font> Uniform``
    * ``<font:myfont:custom_font>Uses a custom font from a resource pack</font>``
 
@@ -321,51 +321,51 @@ Examples
 Markdown
 ^^^^^^^^^^^^^^^^^^^
 
-MiniMessage also comes with a very simple markdown addon. You can enable it by calling ``MiniMessage.markdown()`` or by using the Builder_.
+MiniMessage 还包含一个非常简单的 markdown 拓展. 你可以通过调用 ``MiniMessage.markdown()`` 开启它或者通过使用 Builder_.
 
-Note: Markdown will not be escaped when you call ``escapeTokens``, ``stripTokens`` however will work.
+注意: 当你调用 ``escapeTokens``时, Markdown 不会被转义, 然而 ``stripTokens`` 可以正常工作.
 
-By default, the markdown parser supports the following markup:
+在默认情况下, markdown 解析器支持以下标记:
 
-* Bold:
-   ``**bold**`` will be transformed into ``<bold>bold</bold>``
+* 加粗:
+   ``**bold**`` 将被转换为 ``<bold>bold</bold>``
 
-   ``__bold__`` will be transformed into ``<bold>bold</bold>`` too
-* Italic:
-   ``*italic*`` will be transformed into ``<italic>italic</italic>``
+   ``__bold__`` 也将被转换为 ``<bold>bold</bold>``
+* 斜体:
+   ``*italic*`` 将被转换为 ``<italic>italic</italic>``
 
-   ``_italic_`` will be transformed into ``<italic>italic</italic>`` too
-* Underline:
-   ``~~underline~~`` will be transformed into ``<underlined>underline</underlined>``
-* Obfuscated:
-   ``||obfuscated||`` will be transformed into ``<obfuscated>obfuscated</obfuscated>``
+   ``_italic_`` 也将被转换为 ``<italic>italic</italic>``
+* 下划线:
+   ``~~underline~~`` 将被转换为 ``<underlined>underline</underlined>``
+* 随机字符:
+   ``||obfuscated||`` 将被转换为 ``<obfuscated>obfuscated</obfuscated>``
 
-However, this markup is a bit strange, but now its a too late to change, thats why we got:
+然而, 这些标记有一次奇怪, 但现在改变它们已经太晚了, 这也就是为什么有:
 
-Markdown Flavors
+Markdown 风格
 ----------------
 
-What you saw above is the default/legacy favor. It will hopefully eventually be removed.
+你上面看到的是默认/遗留版本的风格. 它很有可能最终被移除.
 
-To use different markdown flavors, you can use ``MiniMessage.withMarkdownFlavor(DiscordFlavor.get())`` or the Builder_.
+要想使用不同的 markdown 风格, 你可以使用 ``MiniMessage.withMarkdownFlavor(DiscordFlavor.get())`` 或者 Builder_.
 
-The discord flavor works like this: ``**bold**, *italic*, __underline__, ~~strikethrough~~, ||obfusctated||``
+discord 风格工作起来像是这样: ``**bold**, *italic*, __underline__, ~~strikethrough~~, ||obfusctated||``
 
-The github flavor works like this: ``**bold**, *italic*, ~~strikethrough~~``
+github 工作起来像是这样: ``**bold**, *italic*, ~~strikethrough~~``
 
-Additionally, you can implement your own markdown flavors. Take a look at the inbuild flavors for reference!
+额外的, 你可以实现你自己的 markdown 风格. 你可以查看内置的这些风格作为参考!
 
-Placeholder
+占位符
 ^^^^^^^^^^^^^^^^^^^
 
-MiniMessage provides two systems for placeholders. Depending on how you count. Could be 4 too.
+MiniMessage 为占位符提供两个系统. 这依赖于你怎么算的. 也可以说是 4 个.
 
-The easiest one is simple string replacements:
+最简单的一个系统是简单的字符串替换:
 ``MiniMessage.get().parse("<gray>Hello <name>", "name", "MiniDigger")``
 
-As you can see, placeholders are defined like normal tags in the message, and resolve by a list of key value pairs (you can also pass a ``Map<String, String>`` here).
+正如你所看到的, 占位符在消息中被定义为类似于普通标签的样子, 并且被一个键值对列表所解析 (你也可以传入 ``Map<String, String>`` 到这里).
 
-These placeholders are resolved before any other tags in the message. This means, replacements can contain MiniMessage tags:
+这些消息中的占位符会在任何其他标签解析前被解析. 这意味着替换的内容也可以包含 MiniMessage 标签:
  .. code:: java
 
     String name = "MiniDigger";
@@ -374,11 +374,11 @@ These placeholders are resolved before any other tags in the message. This means
     placeholders.put("name", rank + name);
     MiniMessage.get().parse("<gray>Hello <name>", "name", placeholders)
 
-Template
+模板
 ----------
 
-A second system, the template system, allows you to choose between string and full components as replacements.
-These are executed in the main parse loop, so the string replacements can not contain MiniMessage Tags!
+第二个系统, 模板系统, 允许你选择是使用字符串作为替换的内容使用还是完整的组件.
+由于它们是在主解析循环中被执行的, 因此以字符串作为替换内容时字符串不能包含任何 MiniMessage 标签!
 
 .. code:: java
 
@@ -387,17 +387,17 @@ These are executed in the main parse loop, so the string replacements can not co
     List<Template> templates = List.of(Template.of("name", "TEST"), Template.of("name2", "TEST"));
     MiniMessage.get().parse("<gray>Hello <name> and <name2>", Template.of("name", "TEST"));
 
-These are pretty powerful and allow you to take components you got from elsewhere (for example an itemstack or a placeholder api) and include them in your messages easily.
+这些非常强大的功能允许你很容易的从其他地方 (例如一个 itemstack 或是一个占位符 API) 获得组件, 然后将他们包含在你的消息中.
 
-Placeholder resolver
+占位符解析器
 --------------------
 
-To make dealing with (external or internal) placeholder apis even easier, MiniMessage allows you to provide a placeholder resolver.
+为了使处理 (来自外部的或来自内部的) 占位符 API 更加容易, MiniMessage 允许你提供一个占位符解析器.
 
-A placeholder resolver is just a ``Function<String, ComponentLike>``, that allows you to handle tags without having to define them before hand.
-Just return a Component when you resolved the placeholder, else you return null.
+一个占位符解析器只是一个 ``Function<String, ComponentLike>``, 允许你无需事先定义标签而处理它们.
+当你解析占位符时, 只需要返回一个 Component, 否则返回一个 null.
 
-You can define such a resolver using the builder api (for more info, see the Builder_ section below):
+一个使用 builder api 定义这样一个解析器 (更多信息请见下方的 Builder_ 一节):
 
 .. code :: java
 
@@ -410,12 +410,12 @@ You can define such a resolver using the builder api (for more info, see the Bui
 
     Component result = MiniMessage.builder().placeholderResolver(resolver).build().parse("<green><bold><test>");
 
-Customization
+自定义
 ^^^^^^^^^^^^^
 
-MiniMessage is designed to be extended, configured and adjusted to fit your needs.
+MiniMessage 被设计为可拓展, 可配置和可调整的, 以满足你的需求.
 
-Transformations
+转换
 ---------------
 
 At the core, its build around the concept of transformations. A transformation is a object, that transforms a component, by changing its style or adding events, some even delete the original component and replace it with new ones.
@@ -436,7 +436,7 @@ Bold transformation isn't enabled -> bold tag is not parsed.
 Builder
 -------
 
-To make customizing MiniMessage easier, we provide a Builder. Use is pretty self explanatory:
+为了使自定义以 MiniMessage 更加方便, 我们提供了一个 Builder. 用途不言自明:
 
 .. code :: java
 
@@ -449,5 +449,5 @@ To make customizing MiniMessage easier, we provide a Builder. Use is pretty self
         .placeholderResolver(this::resolvePlaceholder)
         .build();
 
-Hint: its a good idea to initialize such a MiniMessage instance once, in a central location, and then use it for all your messages.
-Exception being if you want to customize MiniMessage based on permissions of a user (for example, admins should be allowed to use color and decoration in the message, normal users not)
+小贴士: 只实例化一次 Minimessage 示例, 并将其放在一个中心位置, 使用它处理你所有的消息是一个好习惯.
+如果你想根据用户的权限自定义 MiniMessage 的情况则是一个例外 (例如, 管理员应该被允许在消息中使用颜色和装饰, 普通用户则不能)

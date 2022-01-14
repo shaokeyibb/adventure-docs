@@ -1,18 +1,18 @@
 =========
-Boss Bars
+Boss 血条
 =========
 
-Constructing a Boss Bar
+构造一个 Boss 血条
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Boss Bars are composed of:
-  * A component used for the title of the boss bar
-  * A number from 0 to 1 used to determine how full the boss bar should be
-  * A color, will be downsampeled for clients <1.9
-  * An overlay that determines the amount of visual segments on the boss bar
+Boss 血条由以下内容组成:
+  * 一个组件, 被用作 boss 血条标题
+  * 一个从 0 到 1 的数字, 被用作决定 boss 血条有多满
+  * 一种颜色, 将会在 <1.9 的客户端上被降采样
+  * 一个叠加层 (overlay), 被用作决定 boss 血条视觉上分段的数量
 
 
-**Examples:**
+**示例:**
 
 .. code:: java
 
@@ -20,17 +20,17 @@ Boss Bars are composed of:
 
   public void showMyBossBar(final @NonNull Audience target) {
     final Component name = Component.text("Awesome BossBar");
-    // Creates a red boss bar which has no progress and no notches
+    // 创建一个无进度 (progress), 无凹槽 (notches), 红色的 boss 血条
     final BossBar emptyBar = BossBar.bossBar(name, 0, BossBar.Color.RED, BossBar.Overlay.PROGRESS);
-    // Creates a green boss bar which has 50% progress and 10 notches
+    // 创建一个拥有 50% 进度, 10 个凹槽, 绿色的 boss 血条
     final BossBar halfBar = BossBar.bossBar(name, 0.5f, BossBar.Color.GREEN, BossBar.Overlay.NOTCHED_10);
-    // etc..
+    // 等等..
     final BossBar fullBar = BossBar.bossBar(name, 1, BossBar.Color.BLUE, BossBar.Overlay.NOTCHED_20);
 
-    // Send a bossbar to your audience
+    // 发送一个 bossbar 给你的听众
     target.showBossBar(fullBar);
 
-    // Store it locally to be able to hide it manually later
+    // 将其本地存储以在之后手动隐藏
     this.activeBar = fullBar;
   }
 
@@ -40,19 +40,19 @@ Boss Bars are composed of:
   }
 
 
-Changing an active Boss Bar
+更改一个已被激活的 Boss 血条
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Boss bars are mutable and listen for changes on their object,
-the in-game view will change automatically without having to manually refresh it!
+Boss 血条是可变的, 并且在它们的对象中监听更改,
+游戏内试图将会自动改变而不需要手动刷新它们!
 
-Therefore, if this boss bar is currently active
+因此, 如果一个 boss 血条当前是被激活的
 
 .. code:: java
 
    final BossBar bossBar = BossBar.bossBar(Component.text("Cat counter"), 0, BossBar.Color.RED, BossBar.Overlay.PROGRESS);
 
-and ``#name()`` with a component is called
+并且传入了一个组件的 ``#name()`` 被调用
 
 .. code:: java
 
@@ -60,4 +60,4 @@ and ``#name()`` with a component is called
 
    bossBar.name(newText);
 
-the boss bar will be updated automatically. The same thing goes for ``progress``, ``color`` and ``overlay``.
+该 boss 血条将会被自动更新.  ``progress``, ``color`` 和 ``overlay`` 同理.

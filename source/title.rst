@@ -1,17 +1,17 @@
 ======
-Titles
+标题
 ======
 
-Constructing a Title
+构造一个标题
 ^^^^^^^^^^^^^^^^^^^^
 
-Titles are composed of:
-  * A component used for the main title
-  * A component used for the subtitle
-  * Optionally, a ``Title.Times`` object can be used to determine the fade-in, stay on screen and fade-out durations
+标题由以下内容组成:
+  * 一个组件，被用作表示主标题
+  * 一个组件，被用作表示副标题
+  * 一个可选的 ``Title.Times`` 对象, 可被用作决定淡入 (fade-in), 停留 (stay on screen) 和淡出 (fade-out) 时间
 
 
-**Examples:**
+**示例:**
 
 .. code:: java
 
@@ -19,18 +19,18 @@ Titles are composed of:
     final Component mainTitle = Component.text("This is the main title", NamedTextColor.WHITE);
     final Component subtitle = Component.text("This is the subtitle", NamedTextColor.GRAY);
 
-    // Creates a simple title with the default values for fade-in, stay on screen and fade-out durations
+    // 创建一个带有默认淡入, 停留和淡出时间的简单标题
     final Title title = Title.title(mainTitle, subtitle);
 
-    // Send the title to your audience
+    // 向你的听众发送该标题
     target.showTitle(title);
   }
 
   public void showMyTitleWithDurations(final @NonNull Audience target) {
     final Title.Times times = Title.Times.of(Duration.ofMillis(500), Duration.ofMillis(3000), Duration.ofMillis(1000));
-    // Using the times object this title will use 500ms to fade in, stay on screen for 3000ms and then fade out for 1000ms
+    // 该标题使用的 times 对象将会使用 500ms 时间淡入, 3000ms 时间停留, 1000ms 时间淡出
     final Title title = Title.title(Component.text("Hello!"), Component.empty(), times);
 
-    // Send the title, you can also use Audience#clearTitle() to remove the title at any time
+    // 发送这个标题, 你也可以使用 Audience#clearTitle() 来在任何时候移除这个标题
     target.showTitle(title);
   }

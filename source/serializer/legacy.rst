@@ -1,46 +1,35 @@
-======
-Legacy
-======
+==================
+旧版风格 (Legacy)
+==================
 
-The legacy text serializer converts text to and from the traditional chat format used
-in Minecraft prior to Minecraft 1.7, and continues to be used to this day for its
-familiarity to server owners.
+旧版风格文本序列化器将文本与一个在 Minecraft 1.7 之前使用的传统聊天格式相互转换,
+并且由于其对服主十分友好而被使用至今.
 
-The legacy text serializer does not support most advanced features, including hover
-and click events, components besides text components, and insertions. RGB colors
-are supported (see more in the `RGB support`_ section) and URLs can be transformed
-into clickable components if explicitly requested (note, however, that click events
-containing a URL will *not* be serialized). If advanced features are desired, consider
-using :doc:`/minimessage`.
+旧版风格文本序列化器不支持大部分进阶特性, 包含悬浮和点击事件，除了文本组件以外的其他组件, 以及插入 (insertions).
+RGB 颜色是被支持的 (在 `RGB 支持`_ 一节中了解更多), 如果明确要求, 则网址也可以被转换为可点击的组件 (然而需要注意的是,
+这个包含一个网址的点击事件将 *不会* 被序列化). 如果需要进阶特性, 请考虑使用 :doc:`/minimessage`.
 
-Usage
+用法
 -----
 
-The legacy text serializer is accessed using the ``LegacyComponentSerializer``. The default
-pre-provided serializers include one that uses the section symbol (§) (for display in
-old clients) and another that uses an ampersand (&) typically used in configuration and
-commands to specify color codes.
+旧版风格文本序列化器可使用 ``LegacyComponentSerializer`` 以访问.
+预先提供的默认序列化器在指定颜色的代码上, 一个使用分节符 (§) (用于在旧版客户端中显示),
+另一个则使用通常在配置文件和指令中使用的和号 (&).
 
-The default configuration for the legacy text serializer will deserialize all three of
-the RGB formats supported by Adventure but will only serialize legacy Mojang colors
-(downsampling to the nearest color as needed) and does not transform URLs in text to
-links. You can configure an instance to automatically add click events to URLs in
-components and allow the serializer to serialize RGB colors in either the Adventure
-RGB format or the BungeeCord RGB format using the builder.
+旧版风格文本序列化器默认的配置将会反序列化所有三种被 Adventure 支持的 RGB 格式,
+但是将只会序列化旧版风格的 Mojang 颜色 (如果需要的话将会降采样为近似的颜色),
+且也不会将在文本中的网址转换为链接. 你可以使用一个 builder 配置一个实例来为在组件中的网址自动添加点击事件,
+并允许序列化器序列化 Adventure RGB 格式和 BungeeCord RGB 格式的 RGB 颜色.
 
-RGB support
+RGB 支持
 -----------
 
-The legacy serializer supports deserializing three different formats:
+旧版风格序列化器支持反序列化三种不同的格式:
 
-  * Legacy Mojang color and formatting codes (such as ``§a`` or ``§l``).
-  * An Adventure-specific RGB format that is intended to be easy to edit
-    (such as ``§#a25981``).
-  * A BungeeCord RGB color code format that is backwards compatible with
-    older deserialization routines but is difficult to manipulate and makes
-    it the user's responsibility to assign a fallback for non-RGB clients (such
-    as ``§x§a§2§5§9§8§1``).
+  * 旧版风格的 Mojang 颜色和格式化代码 (例如 ``§a`` 或 ``§l``).
+  * 一个旨在易于编辑的, Adventure 特有的 RGB 格式 (例如 ``§#a25981``).
+  * 一个可向后兼容旧的反序列化例程, 但是难以操作, 且需要由用户手动兼容
+    不支持 RGB 客户端的 BungeeCord RGB 颜色代码格式 (例如 ``§x§a§2§5§9§8§1``).
 
-The legacy serializer downsamples RGB colors by default, but you can create a serializer
-that serializes RGB colors in either the Adventure or BungeeCord RGB formats using the
-builder.
+旧版风格序列化器默认降采样 RGB 颜色, 但是你可以使用 builder
+创建一个可同时序列化 Adventure RGB 格式和 BungeeCord RGB 格式的的序列化器.

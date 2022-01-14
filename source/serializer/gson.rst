@@ -2,40 +2,33 @@
 Gson
 ====
 
-The Gson text serializer converts chat components to their JSON representation
-and back using the Gson library. If you are interested in sending a chat component
-for display in a Minecraft client, or want to support advanced chat component features,
-you should use the Gson text serializer.
+Gson 文本序列化器使用 Gson 依赖库将聊天组件与其 JSON 表示形式相互转换.
+如果你对发送一个用于在 Minecraft 客户端中显示的聊天组件感兴趣,
+或者想要支持进阶的聊天组件特性, 则你应该使用 Gson 文本序列化器.
 
-An average user of this text serializer will typically want to only deserialize a
-component from an external source - serialization is done automatically by the
-:doc:`/platform/index` when the component is sent to the user.
+半数使用此文本序列化器的用户通常只想反序列化一个来自外部源的组件 -
+当组件被发送给用户时, 序列化将会由 :doc:`/platform/index` 自动完成.
 
-Usage
+用法
 -----
 
-The Gson serializer is accessed using the ``GsonComponentSerializer``.
+Gson 序列化器可使用 ``GsonComponentSerializer`` 以访问.
 
-In Minecraft 1.16, Mojang made several major changes to the JSON chat format, adding
-RGB chat colors and changing how hover events are serialized. Components generated for
-older versions of Minecraft will still be able to be displayed in a 1.16 client,
-however components serialized for a 1.16 client will not be able to be displayed in
-a Minecraft 1.15.2 client or lower. 
+在 Minecraft 1.16, Mojang 对 JSON 聊天格式作了许多主要更改,
+增加了 RGB 聊天颜色以及更改了悬浮事件的序列化方式.
+被旧版 Minecraft 生成的组件将仍旧能够在一个 1.16 客户端被显示,
+然而为一个 1.16 客户端序列化的组件将不能被在 Minecraft 1.15.2 或更低版本的客户端被显示.
 
-To get a serializer that works with 1.16 clients and above, use
-``GsonComponentSerializer.gson()``. To get a serializer that works with all versions
-of Minecraft that support text components, use ``GsonComponentSerializer.colorDownsamplingGson()``.
-This serializer downsamples RGB colors to the closest Mojang legacy color and serializes
-hover events in a way that is backwards compatible with older clients.
+要想获取一个适用于 1.16 及更高版本的客户端的序列化器, 使用 ``GsonComponentSerializer.gson()``.
+要想获取一个适用于所有版本 Minecraft 支持文本组件的序列化器, 使用 ``GsonComponentSerializer.colorDownsamplingGson()``.
+此序列化器会将 RGB 颜色降采样 (downsamples) 到接近 Mojang 传统风格的颜色, 并将通过一种方式序列化悬浮事件以兼容旧版客户端.
 
-Which serializer should I use?
+我应该使用哪种序列化器?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If all you're doing is loading and saving components to a configuration file or a database,
-you probably want to use the default 1.16 serializer.
+如果你正在做的事情只是加载或保存组件到一个配置文件或数据库中,
+你可能需要使用的是默认的 1.16 序列化器.
 
-If you're looking to send a component to a client, first consider whether you can one of the
-provided platforms. If you can't use a platform, generally you should prefer the default
-serializer for deserializing components (as it is backwards-compatible), and make a decision
-on whether to use the default or the color downsampling serializer based on the version the
-client is on.
+如果你蒸菜尝试将一个组件发送给客户端，则首先考虑你是否可以使用提供的平台之一.
+如果你不能使用一个平台,通常你应该偏向于使用默认的序列化器以反序列化组件 (因为他是向后兼容的),
+然后基于正在运行的客户端版本, 在使用默认的还是颜色降采样的序列化器中做选择
