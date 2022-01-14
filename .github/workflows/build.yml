@@ -16,4 +16,7 @@ jobs:
       with:
         name: docs-html
         path: build/html/
-
+    - uses: JamesIves/github-pages-deploy-action@v4.2.2
+      with:
+        branch: gh-pages
+        folder: build/html/
