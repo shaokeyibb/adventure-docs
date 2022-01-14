@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>音效 (Sound) &mdash; Adventure 4.9.3 文档</title><link rel="stylesheet" href="_static/css/kyori.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/tabs.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="标题" href="title.html" />
+    <link rel="prev" title="Boss 血条" href="bossbar.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Adventure
+          </a>
+              <div class="version">
+                4.9.3
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">开始</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#id2">使用快照构建</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="audiences.html">听众 (Audiences)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="audiences.html#id1">指针</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="text.html">文本 (聊天组件)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="text.html#id2">创建组件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text.html#id3">格式化组件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text.html#id4">事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text.html#id5">序列化和反序列化组件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text.html#id6">在你的应用程序中使用组件</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="serializer/index.html">文本序列化器</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="serializer/gson.html">Gson</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="serializer/gson.html#id1">用法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="serializer/gson.html#id2">我应该使用哪种序列化器?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="serializer/legacy.html">旧版风格 (Legacy)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="serializer/legacy.html#id1">用法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="serializer/legacy.html#rgb">RGB 支持</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="serializer/plain.html">纯文本 (Plain)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="serializer/plain.html#id1">用法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bossbar.html">Boss 血条</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bossbar.html#id1">构造一个 Boss 血条</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bossbar.html#id2">更改一个已被激活的 Boss 血条</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">音效 (Sound)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">构造一个音效</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">播放一个音效</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">停止一个音效</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">创建一个自定义音效</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="title.html">标题</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="title.html#id2">构造一个标题</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="book.html">书本</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="book.html#id2">构造一个书本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="book.html#id3">有关书本的额外信息</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="minimessage.html">MiniMessage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="minimessage.html#id1">用法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="minimessage.html#api">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="minimessage.html#id2">格式</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="minimessage.html#id3">组件</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="minimessage.html#id4">颜色</a></li>
+<li class="toctree-l4"><a class="reference internal" href="minimessage.html#id6">颜色 (详细)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="minimessage.html#decoration">装饰 (Decoration)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="minimessage.html#id8">重置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="minimessage.html#id9">点击</a></li>
+<li class="toctree-l4"><a class="reference internal" href="minimessage.html#id12">悬浮</a></li>
+<li class="toctree-l4"><a class="reference internal" href="minimessage.html#keybind">按键绑定 (Keybind)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="minimessage.html#translatable">可翻译键 (Translatable)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="minimessage.html#insertion">插入 (Insertion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="minimessage.html#pre">Pre</a></li>
+<li class="toctree-l4"><a class="reference internal" href="minimessage.html#id15">彩虹色</a></li>
+<li class="toctree-l4"><a class="reference internal" href="minimessage.html#gradient">渐变色 (Gradient)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="minimessage.html#id16">字体</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="minimessage.html#markdown">Markdown</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="minimessage.html#id17">Markdown 风格</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="minimessage.html#id18">占位符</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="minimessage.html#id19">模板</a></li>
+<li class="toctree-l3"><a class="reference internal" href="minimessage.html#id20">占位符解析器</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="minimessage.html#id21">自定义</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="minimessage.html#id22">转换</a></li>
+<li class="toctree-l3"><a class="reference internal" href="minimessage.html#builder">Builder</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="platform/index.html">平台</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="platform/native.html">原生支持</a></li>
+<li class="toctree-l2"><a class="reference internal" href="platform/bukkit.html">Bukkit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="platform/bukkit.html#id1">用法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="platform/bukkit.html#id2">组件序列化器</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="platform/bungeecord.html">BungeeCord</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="platform/bungeecord.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="platform/bungeecord.html#component-serializers">Component serializers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="platform/spongeapi.html">SpongeAPI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="platform/spongeapi.html#usage">Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="platform/fabric.html">Fabric</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="platform/fabric.html#dependency">Dependency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="platform/fabric.html#server">Server</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="platform/fabric.html#localization">Localization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="platform/fabric.html#commands">Commands</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="platform/fabric.html#client">Client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="platform/fabric.html#working-with-native-types">Working with native types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="platform/viaversion.html">ViaVersion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="migration/index.html">Migrating to Adventure from other APIs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="migration/bungeecord-chat-api.html">Migrating from the BungeeCord Chat API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="migration/bungeecord-chat-api.html#audiences">Audiences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migration/bungeecord-chat-api.html#decoration-and-styling">Decoration and Styling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migration/bungeecord-chat-api.html#chat-colors">Chat Colors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="migration/bungeecord-chat-api.html#replacement-for-chatcolor">Replacement for <code class="docutils literal notranslate"><span class="pre">ChatColor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="migration/bungeecord-chat-api.html#legacy-strings-can-t-be-constructed">Legacy strings can’t be constructed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="migration/bungeecord-chat-api.html#chatcolor-stripcolor"><code class="docutils literal notranslate"><span class="pre">ChatColor.stripColor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="migration/bungeecord-chat-api.html#chatcolor-translatealternatecolorcodes"><code class="docutils literal notranslate"><span class="pre">ChatColor.translateAlternateColorCodes()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="migration/bungeecord-chat-api.html#differences-in-componentbuilder">Differences in <code class="docutils literal notranslate"><span class="pre">ComponentBuilder</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="migration/bungeecord-chat-api.html#immutability">Immutability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migration/bungeecord-chat-api.html#serializers">Serializers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migration/bungeecord-chat-api.html#backwards-compatibility">Backwards compatibility</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="migration/text-3.x.html">Migrating from text 3.x</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="migration/text-3.x.html#a-word-of-caution">A word of caution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migration/text-3.x.html#breaking-changes-from-text-3-x">Breaking changes from text 3.x</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="migration/text-3.x.html#factory-methods-renamed">Factory methods renamed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="migration/text-3.x.html#builder"><code class="docutils literal notranslate"><span class="pre">.builder()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="migration/text-3.x.html#append-with-a-string-argument"><code class="docutils literal notranslate"><span class="pre">.append()</span></code> with a String argument</a></li>
+<li class="toctree-l4"><a class="reference internal" href="migration/text-3.x.html#legacycomponentserializer"><code class="docutils literal notranslate"><span class="pre">LegacyComponentSerializer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="migration/text-3.x.html#textcolor-renamed-to-namedtextcolor"><code class="docutils literal notranslate"><span class="pre">TextColor</span></code> renamed to <code class="docutils literal notranslate"><span class="pre">NamedTextColor</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="migration/text-3.x.html#serializer">Serializer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Adventure</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>音效 (Sound)</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="admonition danger">
+<p class="admonition-title">危险</p>
+<p>Adventure 文档目前仍为 <strong>尚在施工</strong> 状态，并且作为 <a class="reference external" href="https://jd.adventure.kyori.net">Javadocs</a> 的补充.
+一些地方可能覆盖面有限，或可能不是完全最新的.
+所有你有任何问题，欢迎加入我们的 <a class="reference external" href="https://discord.gg/MMfhJ8F">Discord</a>.</p>
+</div>
+<div class="section" id="sound">
+<h1>音效 (Sound)<a class="headerlink" href="#sound" title="永久链接至标题"></a></h1>
+<p>Adventure 包含一个 API 以播放任何内建或资源包提供的音效. 注意不是所有的平台都实现了播放音效.</p>
+<div class="section" id="id1">
+<h2>构造一个音效<a class="headerlink" href="#id1" title="永久链接至标题"></a></h2>
+<dl class="simple">
+<dt>音效由以下内容组成:</dt><dd><ul class="simple">
+<li><p>一个 Key (更广为人知的说法是 <code class="docutils literal notranslate"><span class="pre">Identifier</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">ResourceLocation</span></code>), 被用作决定要播放的音效. 可以使用任何从资源包自定义的音效. 如果客户端不理解这个音效, 则将会被忽略 (客户端日志将会打印一个警告提示).</p></li>
+<li><p>一个音效来源, 被用作告诉客户端听到的音效的类型. 客户端的音效设定也归因于来源.</p></li>
+<li><p>一个数字, 被用作决定音效可被听到的半径.</p></li>
+<li><p>一个从 0 到 2 的数字, 被用作决定要播放音效的音高。</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>示例:</strong></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// 使用标准的音量和音高创建一个内建的音效</span>
+<span class="n">Sound</span> <span class="n">musicDisc</span> <span class="o">=</span> <span class="n">Sound</span><span class="p">.</span><span class="na">sound</span><span class="p">(</span><span class="n">Key</span><span class="p">.</span><span class="na">key</span><span class="p">(</span><span class="s">&quot;music_disc.13&quot;</span><span class="p">),</span> <span class="n">Sound</span><span class="p">.</span><span class="na">Source</span><span class="p">.</span><span class="na">MUSIC</span><span class="p">,</span> <span class="mf">1f</span><span class="p">,</span> <span class="mf">1f</span><span class="p">);</span>
+
+<span class="c1">// 从我们的资源包创建一个拥有更高音高的音效</span>
+<span class="n">Sound</span> <span class="n">myCustomSound</span> <span class="o">=</span> <span class="n">Sound</span><span class="p">.</span><span class="na">sound</span><span class="p">(</span><span class="n">Key</span><span class="p">.</span><span class="na">key</span><span class="p">(</span><span class="s">&quot;adventure&quot;</span><span class="p">,</span> <span class="s">&quot;rawr&quot;</span><span class="p">),</span> <span class="n">Sound</span><span class="p">.</span><span class="na">Source</span><span class="p">.</span><span class="na">AMBIENT</span><span class="p">,</span> <span class="mf">1f</span><span class="p">,</span> <span class="mf">1.1f</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>播放一个音效<a class="headerlink" href="#id2" title="永久链接至标题"></a></h2>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>客户端可以同时播放多个音效, 但是从 1.16 开始被限制为只能同时播放 8 个音效.</p>
+<p>因为 <a class="reference external" href="https://bugs.mojang.com/browse/MC-138832">MC-138832</a>, 使用发射器 (emitter) 播放的音效的音量和升高可能被忽略.</p>
+<p>如 <a class="reference external" href="https://bugs.mojang.com/browse/MC-146721">MC-146721</a> 所述, 任何立体声音效都将不会在一个指定位置或跟随一个实体播放 , 因此, 位置和发射器参数将会忽略.</p>
+</div>
+<p>一旦你创建了一个音效, 便可以使用多种方法向一个听众播放:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// 在听众所在的位置播放一个音效</span>
+<span class="n">audience</span><span class="p">.</span><span class="na">playSound</span><span class="p">(</span><span class="n">sound</span><span class="p">);</span>
+
+<span class="c1">// 在指定位置播放一个音效</span>
+<span class="n">audience</span><span class="p">.</span><span class="na">playSound</span><span class="p">(</span><span class="n">sound</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">150</span><span class="p">);</span>
+
+<span class="c1">// 播放一个跟随听众成员的音效</span>
+<span class="n">audience</span><span class="p">.</span><span class="na">playSound</span><span class="p">(</span><span class="n">sound</span><span class="p">,</span> <span class="n">Sound</span><span class="p">.</span><span class="na">Emitter</span><span class="p">.</span><span class="na">self</span><span class="p">());</span>
+
+<span class="c1">// 播放一个跟随其他发射器 (通常是一个实体) 的音效</span>
+<span class="n">audience</span><span class="p">.</span><span class="na">playSound</span><span class="p">(</span><span class="n">sound</span><span class="p">,</span> <span class="n">someEntity</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>停止一个音效<a class="headerlink" href="#id3" title="永久链接至标题"></a></h2>
+<p>一个音效停止 (sound stop) 将可以停止选定的音效 – 从客户端正在播放的所有音效, 到特定名称的音效.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">stopMySound</span><span class="p">(</span><span class="kd">final</span> <span class="nd">@NonNull</span> <span class="n">Audience</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 为目标停止一个音效</span>
+  <span class="n">target</span><span class="p">.</span><span class="na">stopSound</span><span class="p">(</span><span class="n">SoundStop</span><span class="p">.</span><span class="na">named</span><span class="p">(</span><span class="n">Key</span><span class="p">.</span><span class="na">key</span><span class="p">(</span><span class="s">&quot;music_disc.13&quot;</span><span class="p">));</span>
+  <span class="c1">// 为目标停止所有天气音效</span>
+  <span class="n">target</span><span class="p">.</span><span class="na">stopSound</span><span class="p">(</span><span class="n">SoundStop</span><span class="p">.</span><span class="na">source</span><span class="p">(</span><span class="n">Sound</span><span class="p">.</span><span class="na">Source</span><span class="p">.</span><span class="na">WEATHER</span><span class="p">));</span>
+  <span class="c1">// 为目标停止所有音效</span>
+  <span class="n">target</span><span class="p">.</span><span class="na">stopSound</span><span class="p">(</span><span class="n">SoundStop</span><span class="p">.</span><span class="na">all</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>音效停止也可以通过使用下面示例块中的方法被构造.
+或者，他们也可以被直接从一个音效中构造.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// 获得一个能够停止特性音效的音效停止对象</span>
+<span class="n">mySound</span><span class="p">.</span><span class="na">asStop</span><span class="p">();</span>
+
+<span class="c1">// 音效也可以通过使用 stopSound 方法被直接停止</span>
+<span class="n">audience</span><span class="p">.</span><span class="na">stopSound</span><span class="p">(</span><span class="n">mySound</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>创建一个自定义音效<a class="headerlink" href="#id4" title="永久链接至标题"></a></h2>
+<p>使用 <code class="docutils literal notranslate"><span class="pre">sounds.json</span></code> 来在一个资源包中定义音效. 进一步了解有关内容可阅读 <a class="reference external" href="https://minecraft.gamepedia.com/Sounds.json">Minecraft Wiki</a></p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="bossbar.html" class="btn btn-neutral float-left" title="Boss 血条" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="title.html" class="btn btn-neutral float-right" title="标题" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2020-2021, KyoriPowered.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

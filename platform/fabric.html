@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fabric &mdash; Adventure 4.9.3 文档</title><link rel="stylesheet" href="../_static/css/kyori.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/tabs.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="ViaVersion" href="viaversion.html" />
+    <link rel="prev" title="SpongeAPI" href="spongeapi.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Adventure
+          </a>
+              <div class="version">
+                4.9.3
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">开始</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started.html#id2">使用快照构建</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../audiences.html">听众 (Audiences)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../audiences.html#id1">指针</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../text.html">文本 (聊天组件)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../text.html#id2">创建组件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text.html#id3">格式化组件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text.html#id4">事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text.html#id5">序列化和反序列化组件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text.html#id6">在你的应用程序中使用组件</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../serializer/index.html">文本序列化器</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../serializer/gson.html">Gson</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../serializer/gson.html#id1">用法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../serializer/gson.html#id2">我应该使用哪种序列化器?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../serializer/legacy.html">旧版风格 (Legacy)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../serializer/legacy.html#id1">用法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../serializer/legacy.html#rgb">RGB 支持</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../serializer/plain.html">纯文本 (Plain)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../serializer/plain.html#id1">用法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../bossbar.html">Boss 血条</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../bossbar.html#id1">构造一个 Boss 血条</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bossbar.html#id2">更改一个已被激活的 Boss 血条</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sound.html">音效 (Sound)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sound.html#id1">构造一个音效</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound.html#id2">播放一个音效</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound.html#id3">停止一个音效</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound.html#id4">创建一个自定义音效</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../title.html">标题</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../title.html#id2">构造一个标题</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../book.html">书本</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../book.html#id2">构造一个书本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../book.html#id3">有关书本的额外信息</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../minimessage.html">MiniMessage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../minimessage.html#id1">用法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../minimessage.html#api">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../minimessage.html#id2">格式</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../minimessage.html#id3">组件</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../minimessage.html#id4">颜色</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../minimessage.html#id6">颜色 (详细)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../minimessage.html#decoration">装饰 (Decoration)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../minimessage.html#id8">重置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../minimessage.html#id9">点击</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../minimessage.html#id12">悬浮</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../minimessage.html#keybind">按键绑定 (Keybind)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../minimessage.html#translatable">可翻译键 (Translatable)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../minimessage.html#insertion">插入 (Insertion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../minimessage.html#pre">Pre</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../minimessage.html#id15">彩虹色</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../minimessage.html#gradient">渐变色 (Gradient)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../minimessage.html#id16">字体</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../minimessage.html#markdown">Markdown</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../minimessage.html#id17">Markdown 风格</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../minimessage.html#id18">占位符</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../minimessage.html#id19">模板</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../minimessage.html#id20">占位符解析器</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../minimessage.html#id21">自定义</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../minimessage.html#id22">转换</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../minimessage.html#builder">Builder</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">平台</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="native.html">原生支持</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bukkit.html">Bukkit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bukkit.html#id1">用法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bukkit.html#id2">组件序列化器</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bungeecord.html">BungeeCord</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bungeecord.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bungeecord.html#component-serializers">Component serializers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spongeapi.html">SpongeAPI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spongeapi.html#usage">Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Fabric</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dependency">Dependency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#server">Server</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#localization">Localization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#commands">Commands</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#client">Client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#working-with-native-types">Working with native types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="viaversion.html">ViaVersion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../migration/index.html">Migrating to Adventure from other APIs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../migration/bungeecord-chat-api.html">Migrating from the BungeeCord Chat API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../migration/bungeecord-chat-api.html#audiences">Audiences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../migration/bungeecord-chat-api.html#decoration-and-styling">Decoration and Styling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../migration/bungeecord-chat-api.html#chat-colors">Chat Colors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../migration/bungeecord-chat-api.html#replacement-for-chatcolor">Replacement for <code class="docutils literal notranslate"><span class="pre">ChatColor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../migration/bungeecord-chat-api.html#legacy-strings-can-t-be-constructed">Legacy strings can’t be constructed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../migration/bungeecord-chat-api.html#chatcolor-stripcolor"><code class="docutils literal notranslate"><span class="pre">ChatColor.stripColor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../migration/bungeecord-chat-api.html#chatcolor-translatealternatecolorcodes"><code class="docutils literal notranslate"><span class="pre">ChatColor.translateAlternateColorCodes()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../migration/bungeecord-chat-api.html#differences-in-componentbuilder">Differences in <code class="docutils literal notranslate"><span class="pre">ComponentBuilder</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../migration/bungeecord-chat-api.html#immutability">Immutability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../migration/bungeecord-chat-api.html#serializers">Serializers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../migration/bungeecord-chat-api.html#backwards-compatibility">Backwards compatibility</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../migration/text-3.x.html">Migrating from text 3.x</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../migration/text-3.x.html#a-word-of-caution">A word of caution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../migration/text-3.x.html#breaking-changes-from-text-3-x">Breaking changes from text 3.x</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../migration/text-3.x.html#factory-methods-renamed">Factory methods renamed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../migration/text-3.x.html#builder"><code class="docutils literal notranslate"><span class="pre">.builder()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../migration/text-3.x.html#append-with-a-string-argument"><code class="docutils literal notranslate"><span class="pre">.append()</span></code> with a String argument</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../migration/text-3.x.html#legacycomponentserializer"><code class="docutils literal notranslate"><span class="pre">LegacyComponentSerializer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../migration/text-3.x.html#textcolor-renamed-to-namedtextcolor"><code class="docutils literal notranslate"><span class="pre">TextColor</span></code> renamed to <code class="docutils literal notranslate"><span class="pre">NamedTextColor</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../migration/text-3.x.html#serializer">Serializer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Adventure</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">平台</a> &raquo;</li>
+      <li>Fabric</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="admonition danger">
+<p class="admonition-title">危险</p>
+<p>Adventure 文档目前仍为 <strong>尚在施工</strong> 状态，并且作为 <a class="reference external" href="https://jd.adventure.kyori.net">Javadocs</a> 的补充.
+一些地方可能覆盖面有限，或可能不是完全最新的.
+所有你有任何问题，欢迎加入我们的 <a class="reference external" href="https://discord.gg/MMfhJ8F">Discord</a>.</p>
+</div>
+<div class="section" id="fabric">
+<h1>Fabric<a class="headerlink" href="#fabric" title="永久链接至标题"></a></h1>
+<p>Adventure supports Fabric on <em>Minecraft: Java Edition</em> 1.16 and up, for both serverside and clientside use. Each major version of Minecraft will usually require a new release of the platform.</p>
+<p>The platform supports all features, including localization and custom renderers.</p>
+<div class="section" id="dependency">
+<h2>Dependency<a class="headerlink" href="#dependency" title="永久链接至标题"></a></h2>
+<p>The fabric platform is packaged as a mod, designed to be included in mods via jar-in-jar packaging. As with the rest of the adventure projects, releases are distributed on Maven Central, and snapshots on Sonatype OSS.</p>
+<p>Add the artifact to your build file:</p>
+<p>First, add the repository:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-TWF2ZW4=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-TWF2ZW4=" name="TWF2ZW4=" role="tab" tabindex="0">Maven</button><button aria-controls="panel-0-R3JhZGxlIChHcm9vdnkp" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-R3JhZGxlIChHcm9vdnkp" name="R3JhZGxlIChHcm9vdnkp" role="tab" tabindex="-1">Gradle (Groovy)</button><button aria-controls="panel-0-R3JhZGxlIChLb3RsaW4p" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-R3JhZGxlIChLb3RsaW4p" name="R3JhZGxlIChLb3RsaW4p" role="tab" tabindex="-1">Gradle (Kotlin)</button></div><div aria-labelledby="tab-0-TWF2ZW4=" class="sphinx-tabs-panel group-tab" id="panel-0-TWF2ZW4=" name="TWF2ZW4=" role="tabpanel" tabindex="0"><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;repositories&gt;</span>
+    <span class="c">&lt;!-- ... --&gt;</span>
+    <span class="nt">&lt;repository&gt;</span> <span class="c">&lt;!-- for development builds --&gt;</span>
+      <span class="nt">&lt;id&gt;</span>sonatype-oss-snapshots<span class="nt">&lt;/id&gt;</span>
+      <span class="nt">&lt;url&gt;</span>https://oss.sonatype.org/content/repositories/snapshots/<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;/repository&gt;</span>
+    <span class="c">&lt;!-- ... --&gt;</span>
+<span class="nt">&lt;/repositories&gt;</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-R3JhZGxlIChHcm9vdnkp" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-R3JhZGxlIChHcm9vdnkp" name="R3JhZGxlIChHcm9vdnkp" role="tabpanel" tabindex="0"><div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="n">repositories</span> <span class="o">{</span>
+   <span class="c1">// for development builds</span>
+   <span class="n">maven</span> <span class="o">{</span>
+       <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;sonatype-oss-snapshots&quot;</span>
+       <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://oss.sonatype.org/content/repositories/snapshots/&quot;</span>
+   <span class="o">}</span>
+   <span class="c1">// for releases</span>
+   <span class="n">mavenCentral</span><span class="o">()</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-R3JhZGxlIChLb3RsaW4p" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-R3JhZGxlIChLb3RsaW4p" name="R3JhZGxlIChLb3RsaW4p" role="tabpanel" tabindex="0"><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">repositories</span> <span class="p">{</span>
+   <span class="c1">// for development builds</span>
+   <span class="n">maven</span><span class="p">(</span><span class="n">url</span> <span class="p">=</span> <span class="s">&quot;https://oss.sonatype.org/content/repositories/snapshots/&quot;</span><span class="p">)</span> <span class="p">{</span>
+       <span class="n">name</span> <span class="p">=</span> <span class="s">&quot;sonatype-oss-snapshots&quot;</span>
+   <span class="p">}</span>
+   <span class="c1">// for releases</span>
+   <span class="n">mavenCentral</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></div>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-R3JhZGxlIChHcm9vdnkp" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-1-R3JhZGxlIChHcm9vdnkp" name="R3JhZGxlIChHcm9vdnkp" role="tab" tabindex="0">Gradle (Groovy)</button><button aria-controls="panel-1-R3JhZGxlIChLb3RsaW4p" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-R3JhZGxlIChLb3RsaW4p" name="R3JhZGxlIChLb3RsaW4p" role="tab" tabindex="-1">Gradle (Kotlin)</button></div><div aria-labelledby="tab-1-R3JhZGxlIChHcm9vdnkp" class="sphinx-tabs-panel group-tab" id="panel-1-R3JhZGxlIChHcm9vdnkp" name="R3JhZGxlIChHcm9vdnkp" role="tabpanel" tabindex="0"><div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="n">dependencies</span> <span class="o">{</span>
+   <span class="n">modImplementation</span> <span class="nf">include</span><span class="o">(</span><span class="s2">&quot;net.kyori:adventure-platform-fabric:4.1.0&quot;</span><span class="o">)</span> <span class="c1">// for Minecraft 1.17</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-1-R3JhZGxlIChLb3RsaW4p" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-R3JhZGxlIChLb3RsaW4p" name="R3JhZGxlIChLb3RsaW4p" role="tabpanel" tabindex="0"><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">dependencies</span> <span class="p">{</span>
+   <span class="n">modImplementation</span><span class="p">(</span><span class="n">include</span><span class="p">(</span><span class="s">&quot;net.kyori:adventure-platform-fabric:4.1.0&quot;</span><span class="p">)</span><span class="o">!!</span><span class="p">)</span> <span class="c1">// for Minecraft 1.17</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></div>
+<p>The fabric platform requires <em>fabric-api-base</em> in order to provide the locale change event, and can optionally use <a class="reference external" href="https://gitlab.com/stellardrift/colonel">Colonel</a> to allow the <code class="docutils literal notranslate"><span class="pre">Component</span></code> and <code class="docutils literal notranslate"><span class="pre">Key</span></code> argument types to be used on clients without the mod installed. There are no other dependencies.</p>
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p>Each major Minecraft release will require different platform versions. The following platform versions are the last released version for each Minecraft release. Older releases may not receive any support.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 69%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Minecraft Version</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">adventure-platform-fabric</span></code> version</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1.16.2-1.16.4</p></td>
+<td><p>4.0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>1.17.x</p></td>
+<td><p>4.1.0</p></td>
+</tr>
+<tr class="row-even"><td><p>1.18</p></td>
+<td><p>5.0.0-SNAPSHOT</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="server">
+<h2>Server<a class="headerlink" href="#server" title="永久链接至标题"></a></h2>
+<p>The logical-server side of the Fabric platform can be accessed any time a server is available, through a <code class="docutils literal notranslate"><span class="pre">FabricServerAudiences</span></code> instance. By default, translatable components will be rendered with the global translator, but a custom renderer can be passed when initializing the platform.</p>
+<p>All <code class="docutils literal notranslate"><span class="pre">AudienceProvider</span></code> interface methods are supported, except for the <code class="docutils literal notranslate"><span class="pre">permission</span></code> method. This will become supported as soon as Fabric gets a suitable permissions API.</p>
+<p>To get started with Adventure, set up an audience provider like this:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyMod</span> <span class="kd">implements</span> <span class="n">ModInitializer</span> <span class="p">{</span>
+  <span class="kd">private</span> <span class="n">FabricServerAudiences</span> <span class="n">adventure</span><span class="p">;</span>
+
+  <span class="kd">public</span> <span class="n">FabricServerAudiences</span> <span class="nf">adventure</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">adventure</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalStateException</span><span class="p">(</span><span class="s">&quot;Tried to access Adventure without a running server!&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onInitialize</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Register with the server lifecycle callbacks</span>
+    <span class="c1">// This will ensure any platform data is cleared between game instances</span>
+    <span class="c1">// This is important on the integrated server, where multiple server instances</span>
+    <span class="c1">// can exist for one mod initialization.</span>
+    <span class="n">ServerLifecycleEvents</span><span class="p">.</span><span class="na">SERVER_STARTING</span><span class="p">.</span><span class="na">register</span><span class="p">(</span><span class="n">server</span> <span class="o">-&gt;</span> <span class="k">this</span><span class="p">.</span><span class="na">platform</span> <span class="o">=</span> <span class="n">FabricServerAudiences</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">server</span><span class="p">));</span>
+    <span class="n">ServerLifecycleEvents</span><span class="p">.</span><span class="na">SERVER_STOPPED</span><span class="p">.</span><span class="na">register</span><span class="p">(</span><span class="n">server</span> <span class="o">-&gt;</span> <span class="k">this</span><span class="p">.</span><span class="na">platform</span> <span class="o">=</span> <span class="kc">null</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>From here, audiences can be aquired for players and any other <code class="docutils literal notranslate"><span class="pre">CommandSource</span></code>. Specialized serializer instances are also available, to allow using game information in component serialization.</p>
+<div class="section" id="localization">
+<h3>Localization<a class="headerlink" href="#localization" title="永久链接至标题"></a></h3>
+<p>As part of the platform’s translation support, the <code class="docutils literal notranslate"><span class="pre">PlayerLocales.CHANGED_EVENT</span></code> callback will be called any time a player on the server receives an updated language from their client, and allows accessing the current locale for a player.</p>
+</div>
+<div class="section" id="commands">
+<h3>Commands<a class="headerlink" href="#commands" title="永久链接至标题"></a></h3>
+<p>The Fabric platform provides custom argument types to specify <code class="docutils literal notranslate"><span class="pre">Key</span></code> and <code class="docutils literal notranslate"><span class="pre">Component</span></code> parameters in Brigadier commands, and has helpers to easily get an <code class="docutils literal notranslate"><span class="pre">Audience</span></code> from a <code class="docutils literal notranslate"><span class="pre">CommandSourceStack</span></code> (yarn: <code class="docutils literal notranslate"><span class="pre">ServerCommandSource</span></code>) instance.</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>If these custom argument types are used, Vanilla clients will not be able to join unless the <a class="reference external" href="https://gitlab.com/stellardrift/colonel">Colonel</a> mod is installed on the server. Like the platform, it is small and easily included in your mod jar.</p>
+</div>
+<p>As an example, here’s a simple command that will echo whatever is provided as input:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// A potential method to be in the mod initializer class above</span>
+<span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">ARG_MESSAGE</span> <span class="o">=</span> <span class="s">&quot;message&quot;</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">registerCommands</span><span class="p">(</span><span class="kd">final</span> <span class="n">CommandDispatcher</span> <span class="n">dispatcher</span><span class="p">,</span> <span class="kd">final</span> <span class="kt">boolean</span> <span class="n">isDedicated</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">dispatcher</span><span class="p">.</span><span class="na">register</span><span class="p">(</span><span class="n">literal</span><span class="p">(</span><span class="s">&quot;echo&quot;</span><span class="p">).</span><span class="na">then</span><span class="p">(</span><span class="n">argument</span><span class="p">(</span><span class="n">ARG_MESSAGE</span><span class="p">,</span> <span class="n">component</span><span class="p">()).</span><span class="na">executes</span><span class="p">(</span><span class="n">ctx</span> <span class="o">-&gt;</span> <span class="p">{</span>
+    <span class="kd">final</span> <span class="n">AdventureCommandSourceStack</span> <span class="n">source</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">adventure</span><span class="p">().</span><span class="na">audience</span><span class="p">(</span><span class="n">ctx</span><span class="p">.</span><span class="na">getSource</span><span class="p">());</span>
+    <span class="kd">final</span> <span class="n">Component</span> <span class="n">message</span> <span class="o">=</span> <span class="n">component</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">ARG_MESSAGE</span><span class="p">);</span>
+
+    <span class="n">source</span><span class="p">.</span><span class="na">sendMessage</span><span class="p">(</span><span class="n">Component</span><span class="p">.</span><span class="na">text</span><span class="p">(</span><span class="s">&quot;You said: &quot;</span><span class="p">).</span><span class="na">append</span><span class="p">(</span><span class="n">message</span><span class="p">));</span>
+  <span class="p">}));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="client">
+<h2>Client<a class="headerlink" href="#client" title="永久链接至标题"></a></h2>
+<p>Special for the Fabric platform, purely clientside operations are supported. The setup is less involved than it is for the server, since the client is a singleton, and there is only one subject that can be acted on: the client’s player.</p>
+<p>This means that for most users the <code class="docutils literal notranslate"><span class="pre">FabricClientAudiences</span></code> object can be treated as a singleton. The only exception is users using a custom renderer. This makes using Adventure audiences fairly simple, as this code example shows:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">doThing</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// Get the audience</span>
+  <span class="kd">final</span> <span class="n">Audience</span> <span class="n">client</span> <span class="o">=</span> <span class="n">FabricClientAudiences</span><span class="p">.</span><span class="na">of</span><span class="p">().</span><span class="na">audience</span><span class="p">();</span>
+
+  <span class="c1">// Do something. This will only work when the player is ingame.</span>
+  <span class="n">client</span><span class="p">.</span><span class="na">sendMessage</span><span class="p">(</span><span class="n">Component</span><span class="p">.</span><span class="na">text</span><span class="p">(</span><span class="s">&quot;meow&quot;</span><span class="p">,</span> <span class="n">NamedTextColor</span><span class="p">.</span><span class="na">DARK_PURPLE</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The full functionality of the <code class="docutils literal notranslate"><span class="pre">Audience</span></code> interface is available, including localization!</p>
+</div>
+<div class="section" id="working-with-native-types">
+<h2>Working with native types<a class="headerlink" href="#working-with-native-types" title="永久链接至标题"></a></h2>
+<p>Sadly, Adventure can’t provide API for every place chat components are used in the game. However, for areas not covered by the API in <code class="docutils literal notranslate"><span class="pre">Audience</span></code>, it’s possible to convert components between native and Adventure types. See the methods on <code class="docutils literal notranslate"><span class="pre">FabricAudiences</span></code> for an idea of what’s available.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="spongeapi.html" class="btn btn-neutral float-left" title="SpongeAPI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="viaversion.html" class="btn btn-neutral float-right" title="ViaVersion" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2020-2021, KyoriPowered.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

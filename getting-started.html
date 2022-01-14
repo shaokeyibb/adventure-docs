@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>开始 &mdash; Adventure 4.9.3 文档</title><link rel="stylesheet" href="_static/css/kyori.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/tabs.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/tabs.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="听众 (Audiences)" href="audiences.html" />
+    <link rel="prev" title="Adventure" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Adventure
+          </a>
+              <div class="version">
+                4.9.3
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">开始</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">使用快照构建</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="audiences.html">听众 (Audiences)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="audiences.html#id1">指针</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="text.html">文本 (聊天组件)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="text.html#id2">创建组件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text.html#id3">格式化组件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text.html#id4">事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text.html#id5">序列化和反序列化组件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text.html#id6">在你的应用程序中使用组件</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="serializer/index.html">文本序列化器</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="serializer/gson.html">Gson</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="serializer/gson.html#id1">用法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="serializer/gson.html#id2">我应该使用哪种序列化器?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="serializer/legacy.html">旧版风格 (Legacy)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="serializer/legacy.html#id1">用法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="serializer/legacy.html#rgb">RGB 支持</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="serializer/plain.html">纯文本 (Plain)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="serializer/plain.html#id1">用法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bossbar.html">Boss 血条</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bossbar.html#id1">构造一个 Boss 血条</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bossbar.html#id2">更改一个已被激活的 Boss 血条</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sound.html">音效 (Sound)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sound.html#id1">构造一个音效</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sound.html#id2">播放一个音效</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sound.html#id3">停止一个音效</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sound.html#id4">创建一个自定义音效</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="title.html">标题</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="title.html#id2">构造一个标题</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="book.html">书本</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="book.html#id2">构造一个书本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="book.html#id3">有关书本的额外信息</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="minimessage.html">MiniMessage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="minimessage.html#id1">用法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="minimessage.html#api">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="minimessage.html#id2">格式</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="minimessage.html#id3">组件</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="minimessage.html#id4">颜色</a></li>
+<li class="toctree-l4"><a class="reference internal" href="minimessage.html#id6">颜色 (详细)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="minimessage.html#decoration">装饰 (Decoration)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="minimessage.html#id8">重置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="minimessage.html#id9">点击</a></li>
+<li class="toctree-l4"><a class="reference internal" href="minimessage.html#id12">悬浮</a></li>
+<li class="toctree-l4"><a class="reference internal" href="minimessage.html#keybind">按键绑定 (Keybind)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="minimessage.html#translatable">可翻译键 (Translatable)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="minimessage.html#insertion">插入 (Insertion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="minimessage.html#pre">Pre</a></li>
+<li class="toctree-l4"><a class="reference internal" href="minimessage.html#id15">彩虹色</a></li>
+<li class="toctree-l4"><a class="reference internal" href="minimessage.html#gradient">渐变色 (Gradient)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="minimessage.html#id16">字体</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="minimessage.html#markdown">Markdown</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="minimessage.html#id17">Markdown 风格</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="minimessage.html#id18">占位符</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="minimessage.html#id19">模板</a></li>
+<li class="toctree-l3"><a class="reference internal" href="minimessage.html#id20">占位符解析器</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="minimessage.html#id21">自定义</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="minimessage.html#id22">转换</a></li>
+<li class="toctree-l3"><a class="reference internal" href="minimessage.html#builder">Builder</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="platform/index.html">平台</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="platform/native.html">原生支持</a></li>
+<li class="toctree-l2"><a class="reference internal" href="platform/bukkit.html">Bukkit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="platform/bukkit.html#id1">用法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="platform/bukkit.html#id2">组件序列化器</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="platform/bungeecord.html">BungeeCord</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="platform/bungeecord.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="platform/bungeecord.html#component-serializers">Component serializers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="platform/spongeapi.html">SpongeAPI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="platform/spongeapi.html#usage">Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="platform/fabric.html">Fabric</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="platform/fabric.html#dependency">Dependency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="platform/fabric.html#server">Server</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="platform/fabric.html#localization">Localization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="platform/fabric.html#commands">Commands</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="platform/fabric.html#client">Client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="platform/fabric.html#working-with-native-types">Working with native types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="platform/viaversion.html">ViaVersion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="migration/index.html">Migrating to Adventure from other APIs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="migration/bungeecord-chat-api.html">Migrating from the BungeeCord Chat API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="migration/bungeecord-chat-api.html#audiences">Audiences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migration/bungeecord-chat-api.html#decoration-and-styling">Decoration and Styling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migration/bungeecord-chat-api.html#chat-colors">Chat Colors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="migration/bungeecord-chat-api.html#replacement-for-chatcolor">Replacement for <code class="docutils literal notranslate"><span class="pre">ChatColor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="migration/bungeecord-chat-api.html#legacy-strings-can-t-be-constructed">Legacy strings can’t be constructed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="migration/bungeecord-chat-api.html#chatcolor-stripcolor"><code class="docutils literal notranslate"><span class="pre">ChatColor.stripColor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="migration/bungeecord-chat-api.html#chatcolor-translatealternatecolorcodes"><code class="docutils literal notranslate"><span class="pre">ChatColor.translateAlternateColorCodes()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="migration/bungeecord-chat-api.html#differences-in-componentbuilder">Differences in <code class="docutils literal notranslate"><span class="pre">ComponentBuilder</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="migration/bungeecord-chat-api.html#immutability">Immutability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migration/bungeecord-chat-api.html#serializers">Serializers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migration/bungeecord-chat-api.html#backwards-compatibility">Backwards compatibility</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="migration/text-3.x.html">Migrating from text 3.x</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="migration/text-3.x.html#a-word-of-caution">A word of caution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migration/text-3.x.html#breaking-changes-from-text-3-x">Breaking changes from text 3.x</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="migration/text-3.x.html#factory-methods-renamed">Factory methods renamed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="migration/text-3.x.html#builder"><code class="docutils literal notranslate"><span class="pre">.builder()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="migration/text-3.x.html#append-with-a-string-argument"><code class="docutils literal notranslate"><span class="pre">.append()</span></code> with a String argument</a></li>
+<li class="toctree-l4"><a class="reference internal" href="migration/text-3.x.html#legacycomponentserializer"><code class="docutils literal notranslate"><span class="pre">LegacyComponentSerializer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="migration/text-3.x.html#textcolor-renamed-to-namedtextcolor"><code class="docutils literal notranslate"><span class="pre">TextColor</span></code> renamed to <code class="docutils literal notranslate"><span class="pre">NamedTextColor</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="migration/text-3.x.html#serializer">Serializer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Adventure</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>开始</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="admonition danger">
+<p class="admonition-title">危险</p>
+<p>Adventure 文档目前仍为 <strong>尚在施工</strong> 状态，并且作为 <a class="reference external" href="https://jd.adventure.kyori.net">Javadocs</a> 的补充.
+一些地方可能覆盖面有限，或可能不是完全最新的.
+所有你有任何问题，欢迎加入我们的 <a class="reference external" href="https://discord.gg/MMfhJ8F">Discord</a>.</p>
+</div>
+<div class="section" id="id1">
+<h1>开始<a class="headerlink" href="#id1" title="永久链接至标题"></a></h1>
+<p>要想在你的项目中使用 Adventure, 你需要添加如下的依赖和仓库 (如果使用 Gradle):</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-TWF2ZW4=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-TWF2ZW4=" name="TWF2ZW4=" role="tab" tabindex="0">Maven</button><button aria-controls="panel-0-R3JhZGxlIChHcm9vdnkp" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-R3JhZGxlIChHcm9vdnkp" name="R3JhZGxlIChHcm9vdnkp" role="tab" tabindex="-1">Gradle (Groovy)</button><button aria-controls="panel-0-R3JhZGxlIChLb3RsaW4p" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-R3JhZGxlIChLb3RsaW4p" name="R3JhZGxlIChLb3RsaW4p" role="tab" tabindex="-1">Gradle (Kotlin)</button></div><div aria-labelledby="tab-0-TWF2ZW4=" class="sphinx-tabs-panel group-tab" id="panel-0-TWF2ZW4=" name="TWF2ZW4=" role="tabpanel" tabindex="0"><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span> <span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>net.kyori<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>adventure-api<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>4.9.3<span class="nt">&lt;/version&gt;</span>
+ <span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-R3JhZGxlIChHcm9vdnkp" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-R3JhZGxlIChHcm9vdnkp" name="R3JhZGxlIChHcm9vdnkp" role="tabpanel" tabindex="0"><div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span> <span class="n">repositories</span> <span class="o">{</span>
+   <span class="n">mavenCentral</span><span class="o">()</span>
+ <span class="o">}</span>
+
+ <span class="n">dependencies</span> <span class="o">{</span>
+    <span class="n">implementation</span> <span class="s2">&quot;net.kyori:adventure-api:4.9.3&quot;</span>
+ <span class="o">}</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-R3JhZGxlIChLb3RsaW4p" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-R3JhZGxlIChLb3RsaW4p" name="R3JhZGxlIChLb3RsaW4p" role="tabpanel" tabindex="0"><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span> <span class="n">repositories</span> <span class="p">{</span>
+   <span class="n">mavenCentral</span><span class="p">()</span>
+ <span class="p">}</span>
+
+ <span class="n">dependencies</span> <span class="p">{</span>
+    <span class="n">implementation</span><span class="p">(</span><span class="s">&quot;net.kyori:adventure-api:4.9.3&quot;</span><span class="p">)</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+</div></div>
+<p>一些平台已经原生支持 Adventure.
+在这种情况下, 你无需添加 Adventure 作为依赖.
+要想查看已经包含 Adventure 的平台列表, 请见 <a class="reference internal" href="platform/native.html"><span class="doc">原生支持</span></a>.</p>
+<p>要想在其他平台使用 Adventure, 你可能希望查看一些平台特定 (platform-specific) 的适配器 (adapters).
+一个带有受支持适配器的平台列表可见于 <a class="reference internal" href="platform/index.html"><span class="doc">平台</span></a>.</p>
+<div class="section" id="id2">
+<h2>使用快照构建<a class="headerlink" href="#id2" title="永久链接至标题"></a></h2>
+<p>要想使用快照构建, 你需要添加如下的仓库:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-TWF2ZW4=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-1-TWF2ZW4=" name="TWF2ZW4=" role="tab" tabindex="0">Maven</button><button aria-controls="panel-1-R3JhZGxlIChHcm9vdnkp" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-R3JhZGxlIChHcm9vdnkp" name="R3JhZGxlIChHcm9vdnkp" role="tab" tabindex="-1">Gradle (Groovy)</button><button aria-controls="panel-1-R3JhZGxlIChLb3RsaW4p" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-R3JhZGxlIChLb3RsaW4p" name="R3JhZGxlIChLb3RsaW4p" role="tab" tabindex="-1">Gradle (Kotlin)</button></div><div aria-labelledby="tab-1-TWF2ZW4=" class="sphinx-tabs-panel group-tab" id="panel-1-TWF2ZW4=" name="TWF2ZW4=" role="tabpanel" tabindex="0"><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;repositories&gt;</span>
+    <span class="nt">&lt;repository&gt;</span>
+       <span class="nt">&lt;id&gt;</span>sonatype-oss-snapshots<span class="nt">&lt;/id&gt;</span>
+       <span class="nt">&lt;url&gt;</span>https://oss.sonatype.org/content/repositories/snapshots/<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;/repository&gt;</span>
+<span class="nt">&lt;/repositories&gt;</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-1-R3JhZGxlIChHcm9vdnkp" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-R3JhZGxlIChHcm9vdnkp" name="R3JhZGxlIChHcm9vdnkp" role="tabpanel" tabindex="0"><div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="n">repositories</span> <span class="o">{</span>
+   <span class="n">maven</span> <span class="o">{</span>
+       <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;sonatype-oss-snapshots&quot;</span>
+       <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://oss.sonatype.org/content/repositories/snapshots/&quot;</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-1-R3JhZGxlIChLb3RsaW4p" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-R3JhZGxlIChLb3RsaW4p" name="R3JhZGxlIChLb3RsaW4p" role="tabpanel" tabindex="0"><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">repositories</span> <span class="p">{</span>
+   <span class="n">maven</span><span class="p">(</span><span class="n">url</span> <span class="p">=</span> <span class="s">&quot;https://oss.sonatype.org/content/repositories/snapshots/&quot;</span><span class="p">)</span> <span class="p">{</span>
+       <span class="n">name</span> <span class="p">=</span> <span class="s">&quot;sonatype-oss-snapshots&quot;</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Adventure" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="audiences.html" class="btn btn-neutral float-right" title="听众 (Audiences)" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2020-2021, KyoriPowered.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+@import 'theme.css';
+
+/* Style sidebar header */
+
+.wy-side-nav-search {
+    background-color: #6355aa;
+}
+
+.wy-side-nav-search > div.version {
+    color: #9988aa;
+}
+
+/* links (TODO: sidebar links should be a different colour -- but are standardized*/
+
+/*
+a {
+  color: #444488;
+}
+
+a:visited {
+  color: #555588;
+}
+
+a:hover {
+    text-decoration: dashed underline;
+}
+
+.wy-menu-vertial a { /* sidebar links *
+    color: #bbbbee !important;
+}
+
+.wy-menu-vertial a:visited { /* sidebar links *
+    color: #bbbbee !important;
+}
+*/
+/* tabs */
+
+.sphinx-tabs .sphinx-menu a.selected.item {
+    color: #444488 !important;
+    border-color: #444488 !important;
+}
+
+.ui.tabular.menu {
+    border-bottom: 1px solid #444488;
+}
+
+.ui.attached.segment {
+    border-color: 1px solid #444488;
+}
+
+/* rounded edges on callouts */
+
+div.admonition {
+    border-radius: 2mm 2mm;
+}
+p.admonition-title {
+    border-top-left-radius: 2mm;
+    border-top-right-radius: 2mm;
+}
+
+div.sidebar {
+    border-radius: 2mm 2mm;
+}
+p.sidebar-title {
+    border-top-left-radius: 2mm;
+    border-top-right-radius: 2mm;
+}
