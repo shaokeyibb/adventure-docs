@@ -144,23 +144,23 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="bungeecord.html">BungeeCord</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="bungeecord.html#usage">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bungeecord.html#component-serializers">Component serializers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bungeecord.html#id1">用法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bungeecord.html#id2">组件序列化器</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="spongeapi.html">SpongeAPI</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="spongeapi.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spongeapi.html#id1">用法</a></li>
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Fabric</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#dependency">Dependency</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#server">Server</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#localization">Localization</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#commands">Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">依赖</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">客户端</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#localization">本地化 (Localization)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">指令</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#client">Client</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#working-with-native-types">Working with native types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">客户端</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">使用原生类型</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="viaversion.html">ViaVersion</a></li>
@@ -232,17 +232,17 @@
 </div>
 <div class="section" id="fabric">
 <h1>Fabric<a class="headerlink" href="#fabric" title="永久链接至标题"></a></h1>
-<p>Adventure supports Fabric on <em>Minecraft: Java Edition</em> 1.16 and up, for both serverside and clientside use. Each major version of Minecraft will usually require a new release of the platform.</p>
-<p>The platform supports all features, including localization and custom renderers.</p>
-<div class="section" id="dependency">
-<h2>Dependency<a class="headerlink" href="#dependency" title="永久链接至标题"></a></h2>
-<p>The fabric platform is packaged as a mod, designed to be included in mods via jar-in-jar packaging. As with the rest of the adventure projects, releases are distributed on Maven Central, and snapshots on Sonatype OSS.</p>
-<p>Add the artifact to your build file:</p>
-<p>First, add the repository:</p>
+<p>Adventure支持面向 <em>Minecraft: Java 版</em> 1.16 以及更高版本的 Fabric, 无论是服务端还是客户端都可以使用. 每一个 Minecraft 的主要版本通常都需要一个新版本的平台.</p>
+<p>该平台支持所有特性, 包含本地化 (localization) 和自定义渲染器 (renderers).</p>
+<div class="section" id="id1">
+<h2>依赖<a class="headerlink" href="#id1" title="永久链接至标题"></a></h2>
+<p>fabric 平台被打包为一个模组, 被设计为通过 jar-in-jar 的打包方式包含在模组中. 于其他 adventure 项目一样, 发行版分布在 Maven Central, 快照版则在 Sonatype OSS 上.</p>
+<p>添加这些构件到你的构建文件:</p>
+<p>首先, 添加仓库:</p>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-TWF2ZW4=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-TWF2ZW4=" name="TWF2ZW4=" role="tab" tabindex="0">Maven</button><button aria-controls="panel-0-R3JhZGxlIChHcm9vdnkp" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-R3JhZGxlIChHcm9vdnkp" name="R3JhZGxlIChHcm9vdnkp" role="tab" tabindex="-1">Gradle (Groovy)</button><button aria-controls="panel-0-R3JhZGxlIChLb3RsaW4p" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-R3JhZGxlIChLb3RsaW4p" name="R3JhZGxlIChLb3RsaW4p" role="tab" tabindex="-1">Gradle (Kotlin)</button></div><div aria-labelledby="tab-0-TWF2ZW4=" class="sphinx-tabs-panel group-tab" id="panel-0-TWF2ZW4=" name="TWF2ZW4=" role="tabpanel" tabindex="0"><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;repositories&gt;</span>
     <span class="c">&lt;!-- ... --&gt;</span>
-    <span class="nt">&lt;repository&gt;</span> <span class="c">&lt;!-- for development builds --&gt;</span>
+    <span class="nt">&lt;repository&gt;</span> <span class="c">&lt;!-- 对于开发构建 --&gt;</span>
       <span class="nt">&lt;id&gt;</span>sonatype-oss-snapshots<span class="nt">&lt;/id&gt;</span>
       <span class="nt">&lt;url&gt;</span>https://oss.sonatype.org/content/repositories/snapshots/<span class="nt">&lt;/url&gt;</span>
     <span class="nt">&lt;/repository&gt;</span>
@@ -251,22 +251,22 @@
 </pre></div>
 </div>
 </div><div aria-labelledby="tab-0-R3JhZGxlIChHcm9vdnkp" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-R3JhZGxlIChHcm9vdnkp" name="R3JhZGxlIChHcm9vdnkp" role="tabpanel" tabindex="0"><div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="n">repositories</span> <span class="o">{</span>
-   <span class="c1">// for development builds</span>
+   <span class="c1">// 对于开发构建</span>
    <span class="n">maven</span> <span class="o">{</span>
        <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;sonatype-oss-snapshots&quot;</span>
        <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://oss.sonatype.org/content/repositories/snapshots/&quot;</span>
    <span class="o">}</span>
-   <span class="c1">// for releases</span>
+   <span class="c1">// 对于发行版</span>
    <span class="n">mavenCentral</span><span class="o">()</span>
 <span class="o">}</span>
 </pre></div>
 </div>
 </div><div aria-labelledby="tab-0-R3JhZGxlIChLb3RsaW4p" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-R3JhZGxlIChLb3RsaW4p" name="R3JhZGxlIChLb3RsaW4p" role="tabpanel" tabindex="0"><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">repositories</span> <span class="p">{</span>
-   <span class="c1">// for development builds</span>
+   <span class="c1">// 对于开发构建</span>
    <span class="n">maven</span><span class="p">(</span><span class="n">url</span> <span class="p">=</span> <span class="s">&quot;https://oss.sonatype.org/content/repositories/snapshots/&quot;</span><span class="p">)</span> <span class="p">{</span>
        <span class="n">name</span> <span class="p">=</span> <span class="s">&quot;sonatype-oss-snapshots&quot;</span>
    <span class="p">}</span>
-   <span class="c1">// for releases</span>
+   <span class="c1">// 对于发行版</span>
    <span class="n">mavenCentral</span><span class="p">()</span>
 <span class="p">}</span>
 </pre></div>
@@ -274,28 +274,28 @@
 </div></div>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-R3JhZGxlIChHcm9vdnkp" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-1-R3JhZGxlIChHcm9vdnkp" name="R3JhZGxlIChHcm9vdnkp" role="tab" tabindex="0">Gradle (Groovy)</button><button aria-controls="panel-1-R3JhZGxlIChLb3RsaW4p" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-R3JhZGxlIChLb3RsaW4p" name="R3JhZGxlIChLb3RsaW4p" role="tab" tabindex="-1">Gradle (Kotlin)</button></div><div aria-labelledby="tab-1-R3JhZGxlIChHcm9vdnkp" class="sphinx-tabs-panel group-tab" id="panel-1-R3JhZGxlIChHcm9vdnkp" name="R3JhZGxlIChHcm9vdnkp" role="tabpanel" tabindex="0"><div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="n">dependencies</span> <span class="o">{</span>
-   <span class="n">modImplementation</span> <span class="nf">include</span><span class="o">(</span><span class="s2">&quot;net.kyori:adventure-platform-fabric:4.1.0&quot;</span><span class="o">)</span> <span class="c1">// for Minecraft 1.17</span>
+   <span class="n">modImplementation</span> <span class="nf">include</span><span class="o">(</span><span class="s2">&quot;net.kyori:adventure-platform-fabric:4.1.0&quot;</span><span class="o">)</span> <span class="c1">// 对于 Minecraft 1.17</span>
 <span class="o">}</span>
 </pre></div>
 </div>
 </div><div aria-labelledby="tab-1-R3JhZGxlIChLb3RsaW4p" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-R3JhZGxlIChLb3RsaW4p" name="R3JhZGxlIChLb3RsaW4p" role="tabpanel" tabindex="0"><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">dependencies</span> <span class="p">{</span>
-   <span class="n">modImplementation</span><span class="p">(</span><span class="n">include</span><span class="p">(</span><span class="s">&quot;net.kyori:adventure-platform-fabric:4.1.0&quot;</span><span class="p">)</span><span class="o">!!</span><span class="p">)</span> <span class="c1">// for Minecraft 1.17</span>
+   <span class="n">modImplementation</span><span class="p">(</span><span class="n">include</span><span class="p">(</span><span class="s">&quot;net.kyori:adventure-platform-fabric:4.1.0&quot;</span><span class="p">)</span><span class="o">!!</span><span class="p">)</span> <span class="c1">// 对于 Minecraft 1.17</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div></div>
-<p>The fabric platform requires <em>fabric-api-base</em> in order to provide the locale change event, and can optionally use <a class="reference external" href="https://gitlab.com/stellardrift/colonel">Colonel</a> to allow the <code class="docutils literal notranslate"><span class="pre">Component</span></code> and <code class="docutils literal notranslate"><span class="pre">Key</span></code> argument types to be used on clients without the mod installed. There are no other dependencies.</p>
+<p>fabric 平台需要 <em>fabric-api-base</em> 提供的一些语言更改事件, 并且可以选用 <a class="reference external" href="https://gitlab.com/stellardrift/colonel">Colonel</a> 以允许在未安装模组的客户端上使用 <code class="docutils literal notranslate"><span class="pre">Component</span></code> 和 <code class="docutils literal notranslate"><span class="pre">Key</span></code> 参数类型. 无需其他依赖.</p>
 <div class="admonition attention">
 <p class="admonition-title">注意</p>
-<p>Each major Minecraft release will require different platform versions. The following platform versions are the last released version for each Minecraft release. Older releases may not receive any support.</p>
+<p>每一个主要的 Minecraft 发行版都需要一个不同的平台版本. 下表展示的平台版本是适用于每一个 Minecraft 发行版的最新发行版本. 旧的发行版本可能不会再受到支持.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 31%" />
 <col style="width: 69%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Minecraft Version</p></th>
-<th class="head"><p><code class="docutils literal notranslate"><span class="pre">adventure-platform-fabric</span></code> version</p></th>
+<tr class="row-odd"><th class="head"><p>Minecraft 版本</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">adventure-platform-fabric</span></code> 版本</p></th>
 </tr>
 </thead>
 <tbody>
@@ -312,11 +312,12 @@
 </table>
 </div>
 </div>
-<div class="section" id="server">
-<h2>Server<a class="headerlink" href="#server" title="永久链接至标题"></a></h2>
-<p>The logical-server side of the Fabric platform can be accessed any time a server is available, through a <code class="docutils literal notranslate"><span class="pre">FabricServerAudiences</span></code> instance. By default, translatable components will be rendered with the global translator, but a custom renderer can be passed when initializing the platform.</p>
-<p>All <code class="docutils literal notranslate"><span class="pre">AudienceProvider</span></code> interface methods are supported, except for the <code class="docutils literal notranslate"><span class="pre">permission</span></code> method. This will become supported as soon as Fabric gets a suitable permissions API.</p>
-<p>To get started with Adventure, set up an audience provider like this:</p>
+<div class="section" id="id2">
+<h2>客户端<a class="headerlink" href="#id2" title="永久链接至标题"></a></h2>
+<p>当一个服务器可用时, 逻辑服务端上的 Fabric 平台可通过一个 <code class="docutils literal notranslate"><span class="pre">FabricServerAudiences</span></code> 实例在任何时候被访问.
+默认情况下, 可翻译组件将被使用总翻译器 (the global translator) 渲染, 但是可以在平台初始化期间传递自定义渲染器.</p>
+<p>除了 <code class="docutils literal notranslate"><span class="pre">permission</span></code> 方法, 所有 <code class="docutils literal notranslate"><span class="pre">AudienceProvider</span></code> 接口的方法都是受支持的. 直到 Fabric 发布一个合适的权限 API, 其才将得到支持.</p>
+<p>要开始使用 Adventure, 以如下方式设置一个听众提供器 (audience provider):</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyMod</span> <span class="kd">implements</span> <span class="n">ModInitializer</span> <span class="p">{</span>
   <span class="kd">private</span> <span class="n">FabricServerAudiences</span> <span class="n">adventure</span><span class="p">;</span>
 
@@ -328,29 +329,28 @@
 
   <span class="nd">@Override</span>
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onInitialize</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// Register with the server lifecycle callbacks</span>
-    <span class="c1">// This will ensure any platform data is cleared between game instances</span>
-    <span class="c1">// This is important on the integrated server, where multiple server instances</span>
-    <span class="c1">// can exist for one mod initialization.</span>
+    <span class="c1">// 使用服务器生命周期回调 (the server lifecycle callbacks) 注册</span>
+    <span class="c1">// 这将确保任何平台数据都将在不同的游戏实例间被清除</span>
+    <span class="c1">// 这在能在一个模组初始化过程中存在多个服务端实例的内置服务端中十分重要</span>
     <span class="n">ServerLifecycleEvents</span><span class="p">.</span><span class="na">SERVER_STARTING</span><span class="p">.</span><span class="na">register</span><span class="p">(</span><span class="n">server</span> <span class="o">-&gt;</span> <span class="k">this</span><span class="p">.</span><span class="na">platform</span> <span class="o">=</span> <span class="n">FabricServerAudiences</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">server</span><span class="p">));</span>
     <span class="n">ServerLifecycleEvents</span><span class="p">.</span><span class="na">SERVER_STOPPED</span><span class="p">.</span><span class="na">register</span><span class="p">(</span><span class="n">server</span> <span class="o">-&gt;</span> <span class="k">this</span><span class="p">.</span><span class="na">platform</span> <span class="o">=</span> <span class="kc">null</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>From here, audiences can be aquired for players and any other <code class="docutils literal notranslate"><span class="pre">CommandSource</span></code>. Specialized serializer instances are also available, to allow using game information in component serialization.</p>
+<p>在这里, 可以为玩家以及任何其他获得听众实例 <code class="docutils literal notranslate"><span class="pre">CommandSource</span></code>. 特制的序列化器实例也同样可用, 以允许在组件序列化中使用游戏信息.</p>
 <div class="section" id="localization">
-<h3>Localization<a class="headerlink" href="#localization" title="永久链接至标题"></a></h3>
-<p>As part of the platform’s translation support, the <code class="docutils literal notranslate"><span class="pre">PlayerLocales.CHANGED_EVENT</span></code> callback will be called any time a player on the server receives an updated language from their client, and allows accessing the current locale for a player.</p>
+<h3>本地化 (Localization)<a class="headerlink" href="#localization" title="永久链接至标题"></a></h3>
+<p>作为平台翻译支持的一部分A, <code class="docutils literal notranslate"><span class="pre">PlayerLocales.CHANGED_EVENT</span></code> 将会在一个服务器内的玩家从他们的客户端接受一个更新的语言时被调用, 并且允许访问该玩家当前的语言.</p>
 </div>
-<div class="section" id="commands">
-<h3>Commands<a class="headerlink" href="#commands" title="永久链接至标题"></a></h3>
-<p>The Fabric platform provides custom argument types to specify <code class="docutils literal notranslate"><span class="pre">Key</span></code> and <code class="docutils literal notranslate"><span class="pre">Component</span></code> parameters in Brigadier commands, and has helpers to easily get an <code class="docutils literal notranslate"><span class="pre">Audience</span></code> from a <code class="docutils literal notranslate"><span class="pre">CommandSourceStack</span></code> (yarn: <code class="docutils literal notranslate"><span class="pre">ServerCommandSource</span></code>) instance.</p>
+<div class="section" id="id3">
+<h3>指令<a class="headerlink" href="#id3" title="永久链接至标题"></a></h3>
+<p>Fabric 平台提供自定义的参数类型以在 Brigadier 命令中指定 <code class="docutils literal notranslate"><span class="pre">Key</span></code> 和 <code class="docutils literal notranslate"><span class="pre">Component</span></code> 参数, 以及有 helpers 可以很容易的从一个 <code class="docutils literal notranslate"><span class="pre">CommandSourceStack</span></code> (yarn: <code class="docutils literal notranslate"><span class="pre">ServerCommandSource</span></code>) 实例获取一个 <code class="docutils literal notranslate"><span class="pre">Audience</span></code> 实例.</p>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
-<p>If these custom argument types are used, Vanilla clients will not be able to join unless the <a class="reference external" href="https://gitlab.com/stellardrift/colonel">Colonel</a> mod is installed on the server. Like the platform, it is small and easily included in your mod jar.</p>
+<p>如果使用了这些自定义的参数类型, 原版客户端将无法加入服务器除非 <a class="reference external" href="https://gitlab.com/stellardrift/colonel">Colonel</a> 模组被安装在服务器上. 就像这个平台一样, 它很小, 并且可以很容易的包含在你的模组 jar 中.</p>
 </div>
-<p>As an example, here’s a simple command that will echo whatever is provided as input:</p>
+<p>作为一个示例, 这里有一个简单的指令, 可以回显输入的任何内容:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// A potential method to be in the mod initializer class above</span>
 <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">ARG_MESSAGE</span> <span class="o">=</span> <span class="s">&quot;message&quot;</span><span class="p">;</span>
 
@@ -366,24 +366,25 @@
 </div>
 </div>
 </div>
-<div class="section" id="client">
-<h2>Client<a class="headerlink" href="#client" title="永久链接至标题"></a></h2>
-<p>Special for the Fabric platform, purely clientside operations are supported. The setup is less involved than it is for the server, since the client is a singleton, and there is only one subject that can be acted on: the client’s player.</p>
-<p>This means that for most users the <code class="docutils literal notranslate"><span class="pre">FabricClientAudiences</span></code> object can be treated as a singleton. The only exception is users using a custom renderer. This makes using Adventure audiences fairly simple, as this code example shows:</p>
+<div class="section" id="id4">
+<h2>客户端<a class="headerlink" href="#id4" title="永久链接至标题"></a></h2>
+<p>在 Fabric 平台上, 纯客户端的操作也是受支持的. 因为客户端是一个单例, 并且在客户端上只有一个主体可以采取行动: 客户端玩家, 因此设置比其在服务端上更少,</p>
+<p>这意味着对于大多数用户, <code class="docutils literal notranslate"><span class="pre">FabricClientAudiences</span></code> 对象可以被视为一个单例, 唯一的例外是那些使用自定义渲染器的用户.
+浙江使 Adventure 听众变得相当简单, 如同如下代码所示:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">doThing</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// Get the audience</span>
+  <span class="c1">// 获取听众对象</span>
   <span class="kd">final</span> <span class="n">Audience</span> <span class="n">client</span> <span class="o">=</span> <span class="n">FabricClientAudiences</span><span class="p">.</span><span class="na">of</span><span class="p">().</span><span class="na">audience</span><span class="p">();</span>
 
-  <span class="c1">// Do something. This will only work when the player is ingame.</span>
+  <span class="c1">// 做一些事情. 这仅在玩家在游戏内时工作.</span>
   <span class="n">client</span><span class="p">.</span><span class="na">sendMessage</span><span class="p">(</span><span class="n">Component</span><span class="p">.</span><span class="na">text</span><span class="p">(</span><span class="s">&quot;meow&quot;</span><span class="p">,</span> <span class="n">NamedTextColor</span><span class="p">.</span><span class="na">DARK_PURPLE</span><span class="p">));</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>The full functionality of the <code class="docutils literal notranslate"><span class="pre">Audience</span></code> interface is available, including localization!</p>
+<p><code class="docutils literal notranslate"><span class="pre">Audience</span></code> 接口的全部功能都是可用的, 包括本地化!</p>
 </div>
-<div class="section" id="working-with-native-types">
-<h2>Working with native types<a class="headerlink" href="#working-with-native-types" title="永久链接至标题"></a></h2>
-<p>Sadly, Adventure can’t provide API for every place chat components are used in the game. However, for areas not covered by the API in <code class="docutils literal notranslate"><span class="pre">Audience</span></code>, it’s possible to convert components between native and Adventure types. See the methods on <code class="docutils literal notranslate"><span class="pre">FabricAudiences</span></code> for an idea of what’s available.</p>
+<div class="section" id="id5">
+<h2>使用原生类型<a class="headerlink" href="#id5" title="永久链接至标题"></a></h2>
+<p>遗憾的是, Adventure 不能为游戏中每一个需要使用聊天组件的地方提供 API. 然而, 对于那些未被 <code class="docutils literal notranslate"><span class="pre">Audience</span></code> 中的 API 覆盖的领域, 有可能在原生和 Adventure 的组件类型中进行转换. 查看在 <code class="docutils literal notranslate"><span class="pre">FabricAudiences</span></code> 中的方法以了解可用的内容.</p>
 </div>
 </div>
 

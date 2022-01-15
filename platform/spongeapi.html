@@ -144,23 +144,23 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="bungeecord.html">BungeeCord</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="bungeecord.html#usage">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bungeecord.html#component-serializers">Component serializers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bungeecord.html#id1">用法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bungeecord.html#id2">组件序列化器</a></li>
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">SpongeAPI</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">用法</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="fabric.html">Fabric</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="fabric.html#dependency">Dependency</a></li>
-<li class="toctree-l3"><a class="reference internal" href="fabric.html#server">Server</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="fabric.html#localization">Localization</a></li>
-<li class="toctree-l4"><a class="reference internal" href="fabric.html#commands">Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fabric.html#id1">依赖</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fabric.html#id2">客户端</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fabric.html#localization">本地化 (Localization)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fabric.html#id3">指令</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="fabric.html#client">Client</a></li>
-<li class="toctree-l3"><a class="reference internal" href="fabric.html#working-with-native-types">Working with native types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fabric.html#id4">客户端</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fabric.html#id5">使用原生类型</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="viaversion.html">ViaVersion</a></li>
@@ -232,13 +232,14 @@
 </div>
 <div class="section" id="spongeapi">
 <h1>SpongeAPI<a class="headerlink" href="#spongeapi" title="永久链接至标题"></a></h1>
-<p>Adventure provides a platform for SpongeAPI 7 for <em>Minecraft: Java Edition</em> 1.12. For SpongeAPI 8 and up (targeting <em>Minecraft: Java Edition</em> 1.16.4), Adventure is the native text library, so no platform is needed.</p>
-<p>To get started using this platform, add the artifact to your build file:</p>
-<p>First, add the repository:</p>
+<p>Adventure 为面向 <em>Minecraft: Java 版</em> 1.12 的 SpongeAPI 7 提供平台.
+对于 SpongeAPI 8 以及更高版本 (支持 <em>Minecraft: Java 版</em> 1.16.4), Adventure 是其原生文本依赖库, 无需平台支持.</p>
+<p>要想开始使用此平台, 添加这些构件到你的构建文件:</p>
+<p>首先, 添加仓库:</p>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-TWF2ZW4=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-TWF2ZW4=" name="TWF2ZW4=" role="tab" tabindex="0">Maven</button><button aria-controls="panel-0-R3JhZGxlIChHcm9vdnkp" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-R3JhZGxlIChHcm9vdnkp" name="R3JhZGxlIChHcm9vdnkp" role="tab" tabindex="-1">Gradle (Groovy)</button><button aria-controls="panel-0-R3JhZGxlIChLb3RsaW4p" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-R3JhZGxlIChLb3RsaW4p" name="R3JhZGxlIChLb3RsaW4p" role="tab" tabindex="-1">Gradle (Kotlin)</button></div><div aria-labelledby="tab-0-TWF2ZW4=" class="sphinx-tabs-panel group-tab" id="panel-0-TWF2ZW4=" name="TWF2ZW4=" role="tabpanel" tabindex="0"><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;repositories&gt;</span>
     <span class="c">&lt;!-- ... --&gt;</span>
-    <span class="nt">&lt;repository&gt;</span> <span class="c">&lt;!-- for development builds --&gt;</span>
+    <span class="nt">&lt;repository&gt;</span> <span class="c">&lt;!-- 对于开发构建 --&gt;</span>
       <span class="nt">&lt;id&gt;</span>sonatype-oss<span class="nt">&lt;/id&gt;</span>
       <span class="nt">&lt;url&gt;</span>https://oss.sonatype.org/content/repositories/snapshots/<span class="nt">&lt;/url&gt;</span>
     <span class="nt">&lt;/repository&gt;</span>
@@ -247,27 +248,27 @@
 </pre></div>
 </div>
 </div><div aria-labelledby="tab-0-R3JhZGxlIChHcm9vdnkp" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-R3JhZGxlIChHcm9vdnkp" name="R3JhZGxlIChHcm9vdnkp" role="tabpanel" tabindex="0"><div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="n">repositories</span> <span class="o">{</span>
-   <span class="c1">// for development builds</span>
+   <span class="c1">// 对于开发构建</span>
    <span class="n">maven</span> <span class="o">{</span>
        <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;sonatype-oss-snapshots&quot;</span>
        <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://oss.sonatype.org/content/repositories/snapshots/&quot;</span>
    <span class="o">}</span>
-   <span class="c1">// for releases</span>
+   <span class="c1">// 对于发行版</span>
    <span class="n">mavenCentral</span><span class="o">()</span>
 <span class="o">}</span>
 </pre></div>
 </div>
 </div><div aria-labelledby="tab-0-R3JhZGxlIChLb3RsaW4p" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-R3JhZGxlIChLb3RsaW4p" name="R3JhZGxlIChLb3RsaW4p" role="tabpanel" tabindex="0"><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">repositories</span> <span class="p">{</span>
-   <span class="c1">// for development builds</span>
+   <span class="c1">// 对于开发构建</span>
    <span class="n">maven</span><span class="p">(</span><span class="n">url</span> <span class="p">=</span> <span class="s">&quot;https://oss.sonatype.org/content/repositories/snapshots/&quot;</span><span class="p">)</span> <span class="p">{</span>
        <span class="n">name</span> <span class="p">=</span> <span class="s">&quot;sonatype-oss-snapshots&quot;</span>
    <span class="p">}</span>
-   <span class="c1">// for releases</span>
+   <span class="c1">// 对于发行版</span>
    <span class="n">mavenCentral</span><span class="p">()</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</div><p>Declaring the dependency:</p>
+</div><p>声明依赖:</p>
 </div>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-TWF2ZW4=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-1-TWF2ZW4=" name="TWF2ZW4=" role="tab" tabindex="0">Maven</button><button aria-controls="panel-1-R3JhZGxlIChHcm9vdnkp" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-R3JhZGxlIChHcm9vdnkp" name="R3JhZGxlIChHcm9vdnkp" role="tab" tabindex="-1">Gradle (Groovy)</button><button aria-controls="panel-1-R3JhZGxlIChLb3RsaW4p" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-R3JhZGxlIChLb3RsaW4p" name="R3JhZGxlIChLb3RsaW4p" role="tab" tabindex="-1">Gradle (Kotlin)</button></div><div aria-labelledby="tab-1-TWF2ZW4=" class="sphinx-tabs-panel group-tab" id="panel-1-TWF2ZW4=" name="TWF2ZW4=" role="tabpanel" tabindex="0"><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
@@ -288,10 +289,10 @@
 </pre></div>
 </div>
 </div></div>
-<div class="section" id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="永久链接至标题"></a></h2>
-<p>The SpongeAPI platform can either be created through Guice dependency injection, or created directly. We recommend using injection, since less boilerplate is requred.</p>
-<p>An example plugin is fairly straightforward:</p>
+<div class="section" id="id1">
+<h2>用法<a class="headerlink" href="#id1" title="永久链接至标题"></a></h2>
+<p>SpongeAPI 平台既可以通过 Guice 依赖注入,也可以直接创建. 我们推荐使用注入以减少样板代码.</p>
+<p>一个相当直截了当的插件示例:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Plugin</span><span class="p">(</span><span class="cm">/* [...] */</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyPlugin</span> <span class="p">{</span>
   <span class="kd">private</span> <span class="kd">final</span> <span class="n">SpongeAudiences</span> <span class="n">adventure</span><span class="p">;</span>
@@ -307,7 +308,7 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>This sets up a <code class="docutils literal notranslate"><span class="pre">SpongeAudiences</span></code> instance that can provide audiences for players, or any <code class="docutils literal notranslate"><span class="pre">MessageReceiver</span></code>.</p>
+<p>这将会设置一个可以为玩家或者任何 <code class="docutils literal notranslate"><span class="pre">MessageReceiver</span></code> 提供听众实例的 <code class="docutils literal notranslate"><span class="pre">SpongeAudiences</span></code> 实例.</p>
 </div>
 </div>
 

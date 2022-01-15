@@ -144,23 +144,23 @@
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">BungeeCord</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#component-serializers">Component serializers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">用法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">组件序列化器</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="spongeapi.html">SpongeAPI</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="spongeapi.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spongeapi.html#id1">用法</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="fabric.html">Fabric</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="fabric.html#dependency">Dependency</a></li>
-<li class="toctree-l3"><a class="reference internal" href="fabric.html#server">Server</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="fabric.html#localization">Localization</a></li>
-<li class="toctree-l4"><a class="reference internal" href="fabric.html#commands">Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fabric.html#id1">依赖</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fabric.html#id2">客户端</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fabric.html#localization">本地化 (Localization)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fabric.html#id3">指令</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="fabric.html#client">Client</a></li>
-<li class="toctree-l3"><a class="reference internal" href="fabric.html#working-with-native-types">Working with native types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fabric.html#id4">客户端</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fabric.html#id5">使用原生类型</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="viaversion.html">ViaVersion</a></li>
@@ -232,14 +232,13 @@
 </div>
 <div class="section" id="bungeecord">
 <h1>BungeeCord<a class="headerlink" href="#bungeecord" title="永久链接至标题"></a></h1>
-<p>Adventure targets the latest version of BungeeCord and BungeeCord-compatible
-forks, such as Waterfall.</p>
-<p>Add the artifact to your build file:</p>
-<p>First, add the repository:</p>
+<p>Adventure 支持最新版本的 BungeeCord 以及兼容 BungeeCord 的下游项目, 例如 Waterfall.</p>
+<p>添加这些构件到你的构建文件:</p>
+<p>首先, 添加仓库:</p>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-TWF2ZW4=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-TWF2ZW4=" name="TWF2ZW4=" role="tab" tabindex="0">Maven</button><button aria-controls="panel-0-R3JhZGxlIChHcm9vdnkp" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-R3JhZGxlIChHcm9vdnkp" name="R3JhZGxlIChHcm9vdnkp" role="tab" tabindex="-1">Gradle (Groovy)</button><button aria-controls="panel-0-R3JhZGxlIChLb3RsaW4p" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-R3JhZGxlIChLb3RsaW4p" name="R3JhZGxlIChLb3RsaW4p" role="tab" tabindex="-1">Gradle (Kotlin)</button></div><div aria-labelledby="tab-0-TWF2ZW4=" class="sphinx-tabs-panel group-tab" id="panel-0-TWF2ZW4=" name="TWF2ZW4=" role="tabpanel" tabindex="0"><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;repositories&gt;</span>
     <span class="c">&lt;!-- ... --&gt;</span>
-    <span class="nt">&lt;repository&gt;</span> <span class="c">&lt;!-- for development builds --&gt;</span>
+    <span class="nt">&lt;repository&gt;</span> <span class="c">&lt;!-- 对于开发构建 --&gt;</span>
       <span class="nt">&lt;id&gt;</span>sonatype-oss-snapshots<span class="nt">&lt;/id&gt;</span>
       <span class="nt">&lt;url&gt;</span>https://oss.sonatype.org/content/repositories/snapshots/<span class="nt">&lt;/url&gt;</span>
     <span class="nt">&lt;/repository&gt;</span>
@@ -248,27 +247,27 @@ forks, such as Waterfall.</p>
 </pre></div>
 </div>
 </div><div aria-labelledby="tab-0-R3JhZGxlIChHcm9vdnkp" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-R3JhZGxlIChHcm9vdnkp" name="R3JhZGxlIChHcm9vdnkp" role="tabpanel" tabindex="0"><div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="n">repositories</span> <span class="o">{</span>
-   <span class="c1">// for development builds</span>
+   <span class="c1">// 对于开发构建</span>
    <span class="n">maven</span> <span class="o">{</span>
        <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;sonatype-oss-snapshots&quot;</span>
        <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://oss.sonatype.org/content/repositories/snapshots/&quot;</span>
    <span class="o">}</span>
-   <span class="c1">// for releases</span>
+   <span class="c1">// 对于发行版</span>
    <span class="n">mavenCentral</span><span class="o">()</span>
 <span class="o">}</span>
 </pre></div>
 </div>
 </div><div aria-labelledby="tab-0-R3JhZGxlIChLb3RsaW4p" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-R3JhZGxlIChLb3RsaW4p" name="R3JhZGxlIChLb3RsaW4p" role="tabpanel" tabindex="0"><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">repositories</span> <span class="p">{</span>
-   <span class="c1">// for development builds</span>
+   <span class="c1">// 对于开发构建</span>
    <span class="n">maven</span><span class="p">(</span><span class="n">url</span> <span class="p">=</span> <span class="s">&quot;https://oss.sonatype.org/content/repositories/snapshots/&quot;</span><span class="p">)</span> <span class="p">{</span>
        <span class="n">name</span> <span class="p">=</span> <span class="s">&quot;sonatype-oss-snapshots&quot;</span>
    <span class="p">}</span>
-   <span class="c1">// for releases</span>
+   <span class="c1">// 对于开发构建</span>
    <span class="n">mavenCentral</span><span class="p">()</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</div><p>Declaring the dependency:</p>
+</div><p>声明依赖:</p>
 </div>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-TWF2ZW4=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-1-TWF2ZW4=" name="TWF2ZW4=" role="tab" tabindex="0">Maven</button><button aria-controls="panel-1-R3JhZGxlIChHcm9vdnkp" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-R3JhZGxlIChHcm9vdnkp" name="R3JhZGxlIChHcm9vdnkp" role="tab" tabindex="-1">Gradle (Groovy)</button><button aria-controls="panel-1-R3JhZGxlIChLb3RsaW4p" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-R3JhZGxlIChLb3RsaW4p" name="R3JhZGxlIChLb3RsaW4p" role="tab" tabindex="-1">Gradle (Kotlin)</button></div><div aria-labelledby="tab-1-TWF2ZW4=" class="sphinx-tabs-panel group-tab" id="panel-1-TWF2ZW4=" name="TWF2ZW4=" role="tabpanel" tabindex="0"><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
@@ -289,12 +288,13 @@ forks, such as Waterfall.</p>
 </pre></div>
 </div>
 </div></div>
-<div class="section" id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="永久链接至标题"></a></h2>
-<p>You should first obtain an <code class="docutils literal notranslate"><span class="pre">BungeeAudiences</span></code> object by using <code class="docutils literal notranslate"><span class="pre">BungeeAudiences.create(plugin)</span></code>. This object is thread-safe
-and can be reused from different threads if needed. This object should also be <em>closed</em> when the plugin is disabled.</p>
-<p>Note that not all functionality is available on the proxy. Sending chat messages, action bar messages, titles, and boss bars, and tab list header and footer are supported, but all other requests will fail silently.</p>
-<p>A simple example of how to appropriately initialize this platform follows:</p>
+<div class="section" id="id1">
+<h2>用法<a class="headerlink" href="#id1" title="永久链接至标题"></a></h2>
+<p>你首先应该获得一个 <code class="docutils literal notranslate"><span class="pre">BungeeAudiences</span></code> 对象通过使用 <code class="docutils literal notranslate"><span class="pre">BungeeAudiences.create(plugin)</span></code>.
+该对象是线程安全的, 因此如果需要的话可以被在不同的线程中重用.
+该对象党插件关闭时也应当被 <em>关闭</em>.</p>
+<p>请注意不是所有功能都在代理服务端中可用. 发送聊天消息, action bar 消息, 标题, boss 血条, tab 列表页眉和页脚都是支持的, 但是其他所有的请求都将会静默失败.</p>
+<p>一个有关如何适当的初始化该平台的简单示例如下:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyPlugin</span> <span class="kd">extends</span> <span class="n">Plugin</span> <span class="p">{</span>
   <span class="kd">private</span> <span class="n">BungeeAudiences</span> <span class="n">adventure</span><span class="p">;</span>
 
@@ -322,12 +322,12 @@ and can be reused from different threads if needed. This object should also be <
 </pre></div>
 </div>
 </div>
-<div class="section" id="component-serializers">
-<h2>Component serializers<a class="headerlink" href="#component-serializers" title="永久链接至标题"></a></h2>
-<p>For functionality not already supported by <code class="docutils literal notranslate"><span class="pre">Audience</span></code>, the <code class="docutils literal notranslate"><span class="pre">BungeeCordComponentSerializer</span></code> allows you to convert between Adventure <a class="reference internal" href="../text.html"><span class="doc">Components</span></a> and the native BungeeCord chat component API and back.</p>
+<div class="section" id="id2">
+<h2>组件序列化器<a class="headerlink" href="#id2" title="永久链接至标题"></a></h2>
+<p>对于那些尚未被 <code class="docutils literal notranslate"><span class="pre">Audience</span></code> 实现的功能, <code class="docutils literal notranslate"><span class="pre">BungeeCordComponentSerializer</span></code> 允许你在 Adventure <a class="reference internal" href="../text.html"><span class="doc">Components</span></a> 和原生 BungeeCord 聊天组件 API 之间相互转换.</p>
 <div class="admonition caution">
 <p class="admonition-title">警告</p>
-<p>For some areas of the proxy (notably, sending server list responses), the component serializer cannot be appropriately injected unless a <code class="docutils literal notranslate"><span class="pre">BungeeAudiences</span></code> instance has been initialized. Using Adventure <code class="docutils literal notranslate"><span class="pre">Component</span></code> instances <strong>will not</strong> work without a created <code class="docutils literal notranslate"><span class="pre">BungeeAudiences</span></code> instance.</p>
+<p>对于代理服务端的某些领域 (比如, 发送服务器列表相应), 组件序列化器无法在 <code class="docutils literal notranslate"><span class="pre">BungeeAudiences</span></code> 实例初始化完成前被适当的注入. 当尚未创建一个 <code class="docutils literal notranslate"><span class="pre">BungeeAudiences</span></code> 实例前使用 Adventure <code class="docutils literal notranslate"><span class="pre">Component</span></code> 实例 <strong>将不会</strong> 工作.</p>
 </div>
 </div>
 </div>

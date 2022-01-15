@@ -144,23 +144,23 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="bungeecord.html">BungeeCord</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="bungeecord.html#usage">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bungeecord.html#component-serializers">Component serializers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bungeecord.html#id1">用法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bungeecord.html#id2">组件序列化器</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="spongeapi.html">SpongeAPI</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="spongeapi.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spongeapi.html#id1">用法</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="fabric.html">Fabric</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="fabric.html#dependency">Dependency</a></li>
-<li class="toctree-l3"><a class="reference internal" href="fabric.html#server">Server</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="fabric.html#localization">Localization</a></li>
-<li class="toctree-l4"><a class="reference internal" href="fabric.html#commands">Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fabric.html#id1">依赖</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fabric.html#id2">客户端</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fabric.html#localization">本地化 (Localization)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fabric.html#id3">指令</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="fabric.html#client">Client</a></li>
-<li class="toctree-l3"><a class="reference internal" href="fabric.html#working-with-native-types">Working with native types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fabric.html#id4">客户端</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fabric.html#id5">使用原生类型</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="viaversion.html">ViaVersion</a></li>
@@ -290,10 +290,11 @@
 </div></div>
 <div class="section" id="id1">
 <h2>用法<a class="headerlink" href="#id1" title="永久链接至标题"></a></h2>
-<p>你首先应该获得一个 <code class="docutils literal notranslate"><span class="pre">BukkitAudiences</span></code> 对象通过使用 <code class="docutils literal notranslate"><span class="pre">BukkitAudiences.create(plugin)</span></code>. 该对象是线程安全的, 因此如果需要的话可以被在不同的线程中重用.
+<p>你首先应该获得一个 <code class="docutils literal notranslate"><span class="pre">BukkitAudiences</span></code> 对象通过使用 <code class="docutils literal notranslate"><span class="pre">BukkitAudiences.create(plugin)</span></code>.
+该对象是线程安全的, 因此如果需要的话可以被在不同的线程中重用.
 从这里开始, Bukkit 的 <code class="docutils literal notranslate"><span class="pre">CommandSender</span></code> 和 <code class="docutils literal notranslate"><span class="pre">Player</span></code> 将可以被转换为
 <code class="docutils literal notranslate"><span class="pre">Audience</span></code> 通过在 <code class="docutils literal notranslate"><span class="pre">BukkitAudiences</span></code> 上使用适当的方法.</p>
-<p>为了清理资源以及提高 <code class="docutils literal notranslate"><span class="pre">/reload</span></code> 的成功的可能性, 当一个插件被关闭时, 听众对象也会被被关闭.</p>
+<p>为了清理资源以及提高 <code class="docutils literal notranslate"><span class="pre">/reload</span></code> 成功的可能性, 当一个插件被关闭时, 听众对象也应当被关闭.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyPlugin</span> <span class="kd">extends</span> <span class="n">JavaPlugin</span> <span class="p">{</span>
 
   <span class="kd">private</span> <span class="n">BukkitAudiences</span> <span class="n">adventure</span><span class="p">;</span>
@@ -326,7 +327,7 @@
 </div>
 <div class="section" id="id2">
 <h2>组件序列化器<a class="headerlink" href="#id2" title="永久链接至标题"></a></h2>
-<p>对于未覆盖 <code class="docutils literal notranslate"><span class="pre">Audience</span></code> 接口的领域, Bukkit 平台提供了 <code class="docutils literal notranslate"><span class="pre">MinecraftComponentSerializer</span></code> (可用于基于 Craftbukkit 的服务器), 和 <code class="docutils literal notranslate"><span class="pre">BungeeComponentSerializer</span></code> (可用于基于 Spigot 和 Paper 的服务器) 来直接在 Adventure <a class="reference internal" href="../text.html"><span class="doc">Components</span></a> 和其他组件类型中作转换. 对于使用那些不直接与原生类型继承的用途,JSON 和旧版风格格式的序列化器在这些运行的服务器版本上也被暴露于 <code class="docutils literal notranslate"><span class="pre">BukkitComponentSerializer</span></code>.</p>
+<p>对于未覆盖 <code class="docutils literal notranslate"><span class="pre">Audience</span></code> 接口的领域, Bukkit 平台提供了 <code class="docutils literal notranslate"><span class="pre">MinecraftComponentSerializer</span></code> (可用于基于 Craftbukkit 的服务器), 和 <code class="docutils literal notranslate"><span class="pre">BungeeComponentSerializer</span></code> (可用于基于 Spigot 和 Paper 的服务器) 来直接在 Adventure <a class="reference internal" href="../text.html"><span class="doc">Components</span></a> 和其他组件类型中作转换. 对于使用那些不直接与原生类型继承的用途, JSON 和旧版风格格式的序列化器在这些运行的服务器版本上也被暴露于 <code class="docutils literal notranslate"><span class="pre">BukkitComponentSerializer</span></code>.</p>
 </div>
 </div>
 
