@@ -84,11 +84,12 @@ Bukkit
 用法
 -----
 
-你首先应该获得一个 ``BukkitAudiences`` 对象通过使用 ``BukkitAudiences.create(plugin)``. 该对象是线程安全的, 因此如果需要的话可以被在不同的线程中重用.
+你首先应该获得一个 ``BukkitAudiences`` 对象通过使用 ``BukkitAudiences.create(plugin)``.
+该对象是线程安全的, 因此如果需要的话可以被在不同的线程中重用.
 从这里开始, Bukkit 的 ``CommandSender`` 和 ``Player`` 将可以被转换为
 ``Audience`` 通过在 ``BukkitAudiences`` 上使用适当的方法.
 
-为了清理资源以及提高 ``/reload`` 的成功的可能性, 当一个插件被关闭时, 听众对象也会被被关闭.
+为了清理资源以及提高 ``/reload`` 成功的可能性, 当一个插件被关闭时, 听众对象也应当被关闭.
 
 .. code:: java
 
@@ -125,4 +126,4 @@ Bukkit
 组件序列化器
 ---------------------
 
-对于未覆盖 ``Audience`` 接口的领域, Bukkit 平台提供了 ``MinecraftComponentSerializer`` (可用于基于 Craftbukkit 的服务器), 和 ``BungeeComponentSerializer`` (可用于基于 Spigot 和 Paper 的服务器) 来直接在 Adventure :doc:`Components </text>` 和其他组件类型中作转换. 对于使用那些不直接与原生类型继承的用途,JSON 和旧版风格格式的序列化器在这些运行的服务器版本上也被暴露于 ``BukkitComponentSerializer``.
+对于未覆盖 ``Audience`` 接口的领域, Bukkit 平台提供了 ``MinecraftComponentSerializer`` (可用于基于 Craftbukkit 的服务器), 和 ``BungeeComponentSerializer`` (可用于基于 Spigot 和 Paper 的服务器) 来直接在 Adventure :doc:`Components </text>` 和其他组件类型中作转换. 对于使用那些不直接与原生类型继承的用途, JSON 和旧版风格格式的序列化器在这些运行的服务器版本上也被暴露于 ``BukkitComponentSerializer``.

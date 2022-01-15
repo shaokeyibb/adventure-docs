@@ -2,12 +2,11 @@
 BungeeCord 
 ==========
 
-Adventure targets the latest version of BungeeCord and BungeeCord-compatible
-forks, such as Waterfall.
+Adventure 支持最新版本的 BungeeCord 以及兼容 BungeeCord 的下游项目, 例如 Waterfall.
 
-Add the artifact to your build file:
+添加这些构件到你的构建文件:
 
-First, add the repository:
+首先, 添加仓库:
 
 .. tabs::
    
@@ -17,7 +16,7 @@ First, add the repository:
 
          <repositories>
              <!-- ... -->
-             <repository> <!-- for development builds -->
+             <repository> <!-- 对于开发构建 -->
                <id>sonatype-oss-snapshots</id>
                <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
              </repository>
@@ -29,12 +28,12 @@ First, add the repository:
       .. code:: groovy
 
          repositories {
-            // for development builds
+            // 对于开发构建
             maven {
                 name = "sonatype-oss-snapshots"
                 url = "https://oss.sonatype.org/content/repositories/snapshots/"
             }
-            // for releases
+            // 对于发行版
             mavenCentral()
          }
 
@@ -43,15 +42,15 @@ First, add the repository:
       .. code:: kotlin
 
          repositories {
-            // for development builds
+            // 对于开发构建
             maven(url = "https://oss.sonatype.org/content/repositories/snapshots/") {
                 name = "sonatype-oss-snapshots"
             }
-            // for releases
+            // 对于开发构建
             mavenCentral()
          }
 
-   Declaring the dependency:
+   声明依赖:
 
 .. tabs::
    
@@ -82,15 +81,16 @@ First, add the repository:
             implementation("net.kyori:adventure-platform-bungeecord:4.0.0")
          }
 
-Usage
+用法
 -----
 
-You should first obtain an ``BungeeAudiences`` object by using ``BungeeAudiences.create(plugin)``. This object is thread-safe
-and can be reused from different threads if needed. This object should also be *closed* when the plugin is disabled.
+你首先应该获得一个 ``BungeeAudiences`` 对象通过使用 ``BungeeAudiences.create(plugin)``.
+该对象是线程安全的, 因此如果需要的话可以被在不同的线程中重用.
+该对象党插件关闭时也应当被 *关闭*.
 
-Note that not all functionality is available on the proxy. Sending chat messages, action bar messages, titles, and boss bars, and tab list header and footer are supported, but all other requests will fail silently.
+请注意不是所有功能都在代理服务端中可用. 发送聊天消息, action bar 消息, 标题, boss 血条, tab 列表页眉和页脚都是支持的, 但是其他所有的请求都将会静默失败.
 
-A simple example of how to appropriately initialize this platform follows:
+一个有关如何适当的初始化该平台的简单示例如下:
 
 .. code:: java
 
@@ -119,11 +119,11 @@ A simple example of how to appropriately initialize this platform follows:
 
    }
 
-Component serializers
+组件序列化器
 ---------------------
 
-For functionality not already supported by ``Audience``, the ``BungeeCordComponentSerializer`` allows you to convert between Adventure :doc:`Components </text>` and the native BungeeCord chat component API and back.
+对于那些尚未被 ``Audience`` 实现的功能, ``BungeeCordComponentSerializer`` 允许你在 Adventure :doc:`Components </text>` 和原生 BungeeCord 聊天组件 API 之间相互转换.
 
 .. caution::
 
-    For some areas of the proxy (notably, sending server list responses), the component serializer cannot be appropriately injected unless a ``BungeeAudiences`` instance has been initialized. Using Adventure ``Component`` instances **will not** work without a created ``BungeeAudiences`` instance.
+    对于代理服务端的某些领域 (比如, 发送服务器列表相应), 组件序列化器无法在 ``BungeeAudiences`` 实例初始化完成前被适当的注入. 当尚未创建一个 ``BungeeAudiences`` 实例前使用 Adventure ``Component`` 实例 **将不会** 工作.

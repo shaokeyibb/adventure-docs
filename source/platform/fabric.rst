@@ -2,19 +2,19 @@
 Fabric
 ======
 
-Adventure supports Fabric on *Minecraft: Java Edition* 1.16 and up, for both serverside and clientside use. Each major version of Minecraft will usually require a new release of the platform.
+Adventure支持面向 *Minecraft: Java 版* 1.16 以及更高版本的 Fabric, 无论是服务端还是客户端都可以使用. 每一个 Minecraft 的主要版本通常都需要一个新版本的平台.
 
-The platform supports all features, including localization and custom renderers.
+该平台支持所有特性, 包含本地化 (localization) 和自定义渲染器 (renderers).
 
 ----------
-Dependency
+依赖
 ----------
 
-The fabric platform is packaged as a mod, designed to be included in mods via jar-in-jar packaging. As with the rest of the adventure projects, releases are distributed on Maven Central, and snapshots on Sonatype OSS.
+fabric 平台被打包为一个模组, 被设计为通过 jar-in-jar 的打包方式包含在模组中. 于其他 adventure 项目一样, 发行版分布在 Maven Central, 快照版则在 Sonatype OSS 上.
 
-Add the artifact to your build file:
+添加这些构件到你的构建文件:
 
-First, add the repository:
+首先, 添加仓库:
 
 .. tabs::
    
@@ -24,7 +24,7 @@ First, add the repository:
 
          <repositories>
              <!-- ... -->
-             <repository> <!-- for development builds -->
+             <repository> <!-- 对于开发构建 -->
                <id>sonatype-oss-snapshots</id>
                <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
              </repository>
@@ -36,12 +36,12 @@ First, add the repository:
       .. code:: groovy
 
          repositories {
-            // for development builds
+            // 对于开发构建
             maven {
                 name = "sonatype-oss-snapshots"
                 url = "https://oss.sonatype.org/content/repositories/snapshots/"
             }
-            // for releases
+            // 对于发行版
             mavenCentral()
          }
 
@@ -50,11 +50,11 @@ First, add the repository:
       .. code:: kotlin
 
          repositories {
-            // for development builds
+            // 对于开发构建
             maven(url = "https://oss.sonatype.org/content/repositories/snapshots/") {
                 name = "sonatype-oss-snapshots"
             }
-            // for releases
+            // 对于发行版
             mavenCentral()
          }
 
@@ -65,7 +65,7 @@ First, add the repository:
       .. code:: groovy
 
          dependencies {
-            modImplementation include("net.kyori:adventure-platform-fabric:4.1.0") // for Minecraft 1.17
+            modImplementation include("net.kyori:adventure-platform-fabric:4.1.0") // 对于 Minecraft 1.17
          }
 
 
@@ -74,17 +74,17 @@ First, add the repository:
       .. code:: kotlin
 
          dependencies {
-            modImplementation(include("net.kyori:adventure-platform-fabric:4.1.0")!!) // for Minecraft 1.17
+            modImplementation(include("net.kyori:adventure-platform-fabric:4.1.0")!!) // 对于 Minecraft 1.17
          }
 
-The fabric platform requires *fabric-api-base* in order to provide the locale change event, and can optionally use Colonel_ to allow the ``Component`` and ``Key`` argument types to be used on clients without the mod installed. There are no other dependencies.
+fabric 平台需要 *fabric-api-base* 提供的一些语言更改事件, 并且可以选用 Colonel_ 以允许在未安装模组的客户端上使用 ``Component`` 和 ``Key`` 参数类型. 无需其他依赖.
 
 .. attention::
 
-   Each major Minecraft release will require different platform versions. The following platform versions are the last released version for each Minecraft release. Older releases may not receive any support.
+   每一个主要的 Minecraft 发行版都需要一个不同的平台版本. 下表展示的平台版本是适用于每一个 Minecraft 发行版的最新发行版本. 旧的发行版本可能不会再受到支持.
 
    =================  ======================================
-   Minecraft Version  ``adventure-platform-fabric`` version
+   Minecraft 版本       ``adventure-platform-fabric`` 版本
    =================  ======================================
    1.16.2-1.16.4      4.0.0
    1.17.x             4.1.0
@@ -93,14 +93,15 @@ The fabric platform requires *fabric-api-base* in order to provide the locale ch
 
 
 ------
-Server
+客户端
 ------
 
-The logical-server side of the Fabric platform can be accessed any time a server is available, through a ``FabricServerAudiences`` instance. By default, translatable components will be rendered with the global translator, but a custom renderer can be passed when initializing the platform. 
+当一个服务器可用时, 逻辑服务端上的 Fabric 平台可通过一个 ``FabricServerAudiences`` 实例在任何时候被访问.
+默认情况下, 可翻译组件将被使用总翻译器 (the global translator) 渲染, 但是可以在平台初始化期间传递自定义渲染器.
 
-All ``AudienceProvider`` interface methods are supported, except for the ``permission`` method. This will become supported as soon as Fabric gets a suitable permissions API.
+除了 ``permission`` 方法, 所有 ``AudienceProvider`` 接口的方法都是受支持的. 直到 Fabric 发布一个合适的权限 API, 其才将得到支持.
 
-To get started with Adventure, set up an audience provider like this:
+要开始使用 Adventure, 以如下方式设置一个听众提供器 (audience provider):
 
 .. code:: java
 
@@ -115,34 +116,33 @@ To get started with Adventure, set up an audience provider like this:
 
      @Override
      public void onInitialize() {
-       // Register with the server lifecycle callbacks
-       // This will ensure any platform data is cleared between game instances
-       // This is important on the integrated server, where multiple server instances
-       // can exist for one mod initialization.
+       // 使用服务器生命周期回调 (the server lifecycle callbacks) 注册
+       // 这将确保任何平台数据都将在不同的游戏实例间被清除
+       // 这在能在一个模组初始化过程中存在多个服务端实例的内置服务端中十分重要
        ServerLifecycleEvents.SERVER_STARTING.register(server -> this.platform = FabricServerAudiences.of(server));
        ServerLifecycleEvents.SERVER_STOPPED.register(server -> this.platform = null);
      }
    }
 
-From here, audiences can be aquired for players and any other ``CommandSource``. Specialized serializer instances are also available, to allow using game information in component serialization.
+在这里, 可以为玩家以及任何其他获得听众实例 ``CommandSource``. 特制的序列化器实例也同样可用, 以允许在组件序列化中使用游戏信息.
 
-~~~~~~~~~~~~
-Localization
-~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~
+本地化 (Localization)
+~~~~~~~~~~~~~~~~~~~~
 
-As part of the platform's translation support, the ``PlayerLocales.CHANGED_EVENT`` callback will be called any time a player on the server receives an updated language from their client, and allows accessing the current locale for a player.
+作为平台翻译支持的一部分A, ``PlayerLocales.CHANGED_EVENT`` 将会在一个服务器内的玩家从他们的客户端接受一个更新的语言时被调用, 并且允许访问该玩家当前的语言.
 
 ~~~~~~~~
-Commands
+指令
 ~~~~~~~~
 
-The Fabric platform provides custom argument types to specify ``Key`` and ``Component`` parameters in Brigadier commands, and has helpers to easily get an ``Audience`` from a ``CommandSourceStack`` (yarn: ``ServerCommandSource``) instance.
+Fabric 平台提供自定义的参数类型以在 Brigadier 命令中指定 ``Key`` 和 ``Component`` 参数, 以及有 helpers 可以很容易的从一个 ``CommandSourceStack`` (yarn: ``ServerCommandSource``) 实例获取一个 ``Audience`` 实例.
 
 .. warning::
 
-    If these custom argument types are used, Vanilla clients will not be able to join unless the Colonel_ mod is installed on the server. Like the platform, it is small and easily included in your mod jar.
+    如果使用了这些自定义的参数类型, 原版客户端将无法加入服务器除非 Colonel_ 模组被安装在服务器上. 就像这个平台一样, 它很小, 并且可以很容易的包含在你的模组 jar 中.
 
-As an example, here's a simple command that will echo whatever is provided as input:
+作为一个示例, 这里有一个简单的指令, 可以回显输入的任何内容:
 
 .. code:: java
 
@@ -160,30 +160,31 @@ As an example, here's a simple command that will echo whatever is provided as in
    }
 
 ------
-Client
+客户端
 ------
 
-Special for the Fabric platform, purely clientside operations are supported. The setup is less involved than it is for the server, since the client is a singleton, and there is only one subject that can be acted on: the client's player.
+在 Fabric 平台上, 纯客户端的操作也是受支持的. 因为客户端是一个单例, 并且在客户端上只有一个主体可以采取行动: 客户端玩家, 因此设置比其在服务端上更少,
 
-This means that for most users the ``FabricClientAudiences`` object can be treated as a singleton. The only exception is users using a custom renderer. This makes using Adventure audiences fairly simple, as this code example shows:
+这意味着对于大多数用户, ``FabricClientAudiences`` 对象可以被视为一个单例, 唯一的例外是那些使用自定义渲染器的用户.
+浙江使 Adventure 听众变得相当简单, 如同如下代码所示:
 
 .. code:: java
 
    void doThing() {
-     // Get the audience
+     // 获取听众对象
      final Audience client = FabricClientAudiences.of().audience();
 
-     // Do something. This will only work when the player is ingame.
+     // 做一些事情. 这仅在玩家在游戏内时工作.
      client.sendMessage(Component.text("meow", NamedTextColor.DARK_PURPLE));
    }
 
-The full functionality of the ``Audience`` interface is available, including localization!
+``Audience`` 接口的全部功能都是可用的, 包括本地化!
 
 -------------------------
-Working with native types
+使用原生类型
 -------------------------
 
-Sadly, Adventure can't provide API for every place chat components are used in the game. However, for areas not covered by the API in ``Audience``, it's possible to convert components between native and Adventure types. See the methods on ``FabricAudiences`` for an idea of what's available.
+遗憾的是, Adventure 不能为游戏中每一个需要使用聊天组件的地方提供 API. 然而, 对于那些未被 ``Audience`` 中的 API 覆盖的领域, 有可能在原生和 Adventure 的组件类型中进行转换. 查看在 ``FabricAudiences`` 中的方法以了解可用的内容.
 
 
 .. _Colonel: https://gitlab.com/stellardrift/colonel

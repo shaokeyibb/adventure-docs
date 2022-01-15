@@ -2,11 +2,12 @@
 SpongeAPI 
 =========
 
-Adventure provides a platform for SpongeAPI 7 for *Minecraft: Java Edition* 1.12. For SpongeAPI 8 and up (targeting *Minecraft: Java Edition* 1.16.4), Adventure is the native text library, so no platform is needed.
+Adventure 为面向 *Minecraft: Java 版* 1.12 的 SpongeAPI 7 提供平台.
+对于 SpongeAPI 8 以及更高版本 (支持 *Minecraft: Java 版* 1.16.4), Adventure 是其原生文本依赖库, 无需平台支持.
 
-To get started using this platform, add the artifact to your build file:
+要想开始使用此平台, 添加这些构件到你的构建文件:
 
-First, add the repository:
+首先, 添加仓库:
 
 .. tabs::
    
@@ -16,7 +17,7 @@ First, add the repository:
 
          <repositories>
              <!-- ... -->
-             <repository> <!-- for development builds -->
+             <repository> <!-- 对于开发构建 -->
                <id>sonatype-oss</id>
                <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
              </repository>
@@ -28,12 +29,12 @@ First, add the repository:
       .. code:: groovy
 
          repositories {
-            // for development builds
+            // 对于开发构建
             maven {
                 name = "sonatype-oss-snapshots"
                 url = "https://oss.sonatype.org/content/repositories/snapshots/"
             }
-            // for releases
+            // 对于发行版
             mavenCentral()
          }
 
@@ -42,15 +43,15 @@ First, add the repository:
       .. code:: kotlin
 
          repositories {
-            // for development builds
+            // 对于开发构建
             maven(url = "https://oss.sonatype.org/content/repositories/snapshots/") {
                 name = "sonatype-oss-snapshots"
             }
-            // for releases
+            // 对于发行版
             mavenCentral()
          }
 
-   Declaring the dependency:
+   声明依赖:
 
 .. tabs::
    
@@ -82,12 +83,12 @@ First, add the repository:
          }
 
 
-Usage
+用法
 ~~~~~
 
-The SpongeAPI platform can either be created through Guice dependency injection, or created directly. We recommend using injection, since less boilerplate is requred.
+SpongeAPI 平台既可以通过 Guice 依赖注入,也可以直接创建. 我们推荐使用注入以减少样板代码.
 
-An example plugin is fairly straightforward:
+一个相当直截了当的插件示例:
 
 .. code:: java
 
@@ -106,4 +107,4 @@ An example plugin is fairly straightforward:
    }
 
 
-This sets up a ``SpongeAudiences`` instance that can provide audiences for players, or any ``MessageReceiver``.
+这将会设置一个可以为玩家或者任何 ``MessageReceiver`` 提供听众实例的 ``SpongeAudiences`` 实例.
