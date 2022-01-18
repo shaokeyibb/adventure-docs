@@ -340,7 +340,7 @@ MiniMessage 还包含一个非常简单的 markdown 拓展. 你可以通过调�
 * 随机字符:
    ``||obfuscated||`` 将被转换为 ``<obfuscated>obfuscated</obfuscated>``
 
-然而, 这些标记有一次奇怪, 但现在改变它们已经太晚了, 这也就是为什么有:
+然而, 这些标记有一些奇怪, 但现在改变它们已经太晚了, 这也就是为什么有:
 
 Markdown 风格
 ----------------
