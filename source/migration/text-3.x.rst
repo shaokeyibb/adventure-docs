@@ -1,5 +1,5 @@
 =======================
-Migrating from text 3.x
+从 text 3.x 迁移
 =======================
 
 Adventure is an evolution of the text 3.x API. If you've worked with

@@ -1,5 +1,5 @@
 ======================================
-Migrating to Adventure from other APIs
+从其他 API 迁移到 Adventure
 ======================================
 
 Moving to Adventure from other APIs is fairly straightforward. These guides

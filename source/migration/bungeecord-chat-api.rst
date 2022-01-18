@@ -1,5 +1,5 @@
 ======================================
-Migrating from the BungeeCord Chat API
+从 BungeeCord Chat API 迁移
 ======================================
 
 Adventure's text API and the BungeeCord Chat API are designed along very different
