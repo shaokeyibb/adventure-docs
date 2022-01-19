@@ -210,7 +210,7 @@ Examples
 .. image:: https://i.imgur.com/VsHDPTI.png
 
 按键绑定 (Keybind)
-************
+*******************
 
 允许为行为显示配置过的按键
 
@@ -224,7 +224,7 @@ Examples
 .. image:: https://i.imgur.com/iQmNDF6.png
 
 可翻译键 (Translatable)
-************
+***********************
 
 允许使用玩家的语言环境显示 miencraft 消息
 
@@ -241,7 +241,7 @@ Examples
 .. image:: https://i.imgur.com/esWpnxm.png
 
 插入 (Insertion)
-************
+****************
 
 允许通过 shift 单机将文本插入聊天
 
@@ -287,7 +287,7 @@ Pre
 .. image:: https://i.imgur.com/Ertlk2G.png
 
 渐变色 (Gradient)
-************
+*******************
 
 渐变色的文本
 
